@@ -1,0 +1,5246 @@
+{
+  "baseUrl": "https://behavior.test",
+  "operationCount": 112,
+  "credentials": {
+    "bearer": "behavior-bearer-token",
+    "apiKey": "behavior-api-key",
+    "basicUser": "behavior-user",
+    "basicPassword": "behavior-password",
+    "basicHeader": "Basic YmVoYXZpb3ItdXNlcjpiZWhhdmlvci1wYXNzd29yZA=="
+  },
+  "authHeaders": {},
+  "cases": [
+    {
+      "id": "behavior-1",
+      "operationId": "login",
+      "kinds": ["error-response", "json-request", "json-response"],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/auth/login",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "body": {
+          "username": "Example Name",
+          "password": "password"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": []
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/auth/login",
+        "query": "",
+        "url": "https://behavior.test/auth/login",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"username\":\"Example Name\",\"password\":\"password\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"user\":{\"userId\":\"00000000-0000-4000-8000-000000000000\",\"username\":\"Example Name\",\"displayName\":\"Example Name\",\"role\":\"AGENT\",\"locale\":\"locale\"},\"isDeviceRegistered\":false,\"deviceAccount\":\"deviceAccount\"}",
+        "value": {
+          "user": {
+            "userId": "00000000-0000-4000-8000-000000000000",
+            "username": "Example Name",
+            "displayName": "Example Name",
+            "role": "AGENT",
+            "locale": "locale"
+          },
+          "isDeviceRegistered": false,
+          "deviceAccount": "deviceAccount"
+        }
+      }
+    },
+    {
+      "id": "behavior-2",
+      "operationId": "logout",
+      "kinds": ["auth-application", "empty-response", "error-response"],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/auth/logout",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": [],
+            "csrfHeader": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/auth/logout",
+        "query": "",
+        "url": "https://behavior.test/auth/logout",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "empty",
+        "status": 204,
+        "mediaType": null,
+        "body": "",
+        "value": null
+      }
+    },
+    {
+      "id": "behavior-3",
+      "operationId": "getMe",
+      "kinds": ["auth-application", "error-response", "json-response"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/auth/me",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": []
+          },
+          {
+            "apiKeyBearer": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/auth/me",
+        "query": "",
+        "url": "https://behavior.test/auth/me",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"user\":{\"userId\":\"00000000-0000-4000-8000-000000000000\",\"username\":\"Example Name\",\"displayName\":\"Example Name\",\"role\":\"AGENT\",\"locale\":\"locale\"},\"isDeviceRegistered\":false,\"deviceAccount\":\"deviceAccount\"}",
+        "value": {
+          "user": {
+            "userId": "00000000-0000-4000-8000-000000000000",
+            "username": "Example Name",
+            "displayName": "Example Name",
+            "role": "AGENT",
+            "locale": "locale"
+          },
+          "isDeviceRegistered": false,
+          "deviceAccount": "deviceAccount"
+        }
+      }
+    },
+    {
+      "id": "behavior-4",
+      "operationId": "getAgentPresence",
+      "kinds": ["auth-application", "error-response", "json-response"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/agent/presence",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["agent:read"]
+          },
+          {
+            "apiKeyBearer": ["agent:read"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/agent/presence",
+        "query": "",
+        "url": "https://behavior.test/agent/presence",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"agentId\":\"00000000-0000-4000-8000-000000000000\",\"state\":\"LOGGED_OUT\",\"reason\":\"LOGIN\",\"availability\":\"LOGGED_OUT\",\"extensionNumber\":\"extensionNumber\",\"sipDomain\":\"sipDomain\",\"isDeviceRegistered\":false,\"deviceAccount\":\"deviceAccount\",\"enteredAt\":\"2024-01-01T00:00:00Z\",\"wrapUpCallId\":\"00000000-0000-4000-8000-000000000000\"}",
+        "value": {
+          "agentId": "00000000-0000-4000-8000-000000000000",
+          "state": "LOGGED_OUT",
+          "reason": "LOGIN",
+          "availability": "LOGGED_OUT",
+          "extensionNumber": "extensionNumber",
+          "sipDomain": "sipDomain",
+          "isDeviceRegistered": false,
+          "deviceAccount": "deviceAccount",
+          "enteredAt": "2024-01-01T00:00:00Z",
+          "wrapUpCallId": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    },
+    {
+      "id": "behavior-5",
+      "operationId": "agentLogin",
+      "kinds": ["auth-application", "error-response", "json-request", "json-response"],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/agent/login",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "body": {},
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["agent:act"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["agent:act"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/agent/login",
+        "query": "",
+        "url": "https://behavior.test/agent/login",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"agentId\":\"00000000-0000-4000-8000-000000000000\",\"state\":\"LOGGED_OUT\",\"reason\":\"LOGIN\",\"availability\":\"LOGGED_OUT\",\"extensionNumber\":\"extensionNumber\",\"sipDomain\":\"sipDomain\",\"isDeviceRegistered\":false,\"deviceAccount\":\"deviceAccount\",\"enteredAt\":\"2024-01-01T00:00:00Z\",\"wrapUpCallId\":\"00000000-0000-4000-8000-000000000000\"}",
+        "value": {
+          "agentId": "00000000-0000-4000-8000-000000000000",
+          "state": "LOGGED_OUT",
+          "reason": "LOGIN",
+          "availability": "LOGGED_OUT",
+          "extensionNumber": "extensionNumber",
+          "sipDomain": "sipDomain",
+          "isDeviceRegistered": false,
+          "deviceAccount": "deviceAccount",
+          "enteredAt": "2024-01-01T00:00:00Z",
+          "wrapUpCallId": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    },
+    {
+      "id": "behavior-6",
+      "operationId": "agentLogout",
+      "kinds": ["auth-application", "error-response", "json-response"],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/agent/logout",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["agent:act"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["agent:act"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/agent/logout",
+        "query": "",
+        "url": "https://behavior.test/agent/logout",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"agentId\":\"00000000-0000-4000-8000-000000000000\",\"state\":\"LOGGED_OUT\",\"reason\":\"LOGIN\",\"availability\":\"LOGGED_OUT\",\"extensionNumber\":\"extensionNumber\",\"sipDomain\":\"sipDomain\",\"isDeviceRegistered\":false,\"deviceAccount\":\"deviceAccount\",\"enteredAt\":\"2024-01-01T00:00:00Z\",\"wrapUpCallId\":\"00000000-0000-4000-8000-000000000000\"}",
+        "value": {
+          "agentId": "00000000-0000-4000-8000-000000000000",
+          "state": "LOGGED_OUT",
+          "reason": "LOGIN",
+          "availability": "LOGGED_OUT",
+          "extensionNumber": "extensionNumber",
+          "sipDomain": "sipDomain",
+          "isDeviceRegistered": false,
+          "deviceAccount": "deviceAccount",
+          "enteredAt": "2024-01-01T00:00:00Z",
+          "wrapUpCallId": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    },
+    {
+      "id": "behavior-7",
+      "operationId": "getAgentWrapUp",
+      "kinds": ["auth-application", "empty-response", "error-response", "json-response"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/agent/wrap-up",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["agent:read"]
+          },
+          {
+            "apiKeyBearer": ["agent:read"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/agent/wrap-up",
+        "query": "",
+        "url": "https://behavior.test/agent/wrap-up",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"callId\":\"00000000-0000-4000-8000-000000000000\",\"dispositionCode\":\"dispositionCode\",\"dispositionLabel\":\"dispositionLabel\",\"note\":\"note\",\"isConfirmed\":false,\"createdAt\":\"2024-01-01T00:00:00Z\",\"draftDispositionCode\":\"draftDispositionCode\",\"draftNote\":\"draftNote\",\"draftGeneratedAt\":\"2024-01-01T00:00:00Z\"}",
+        "value": {
+          "callId": "00000000-0000-4000-8000-000000000000",
+          "dispositionCode": "dispositionCode",
+          "dispositionLabel": "dispositionLabel",
+          "note": "note",
+          "isConfirmed": false,
+          "createdAt": "2024-01-01T00:00:00Z",
+          "draftDispositionCode": "draftDispositionCode",
+          "draftNote": "draftNote",
+          "draftGeneratedAt": "2024-01-01T00:00:00Z"
+        }
+      }
+    },
+    {
+      "id": "behavior-8",
+      "operationId": "agentWrapUp",
+      "kinds": ["auth-application", "error-response", "json-request", "json-response"],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/agent/wrap-up",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "body": {
+          "dispositionCode": "dispositionCode",
+          "note": "note"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["agent:act"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["agent:act"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/agent/wrap-up",
+        "query": "",
+        "url": "https://behavior.test/agent/wrap-up",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"dispositionCode\":\"dispositionCode\",\"note\":\"note\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"agentId\":\"00000000-0000-4000-8000-000000000000\",\"state\":\"LOGGED_OUT\",\"reason\":\"LOGIN\",\"availability\":\"LOGGED_OUT\",\"extensionNumber\":\"extensionNumber\",\"sipDomain\":\"sipDomain\",\"isDeviceRegistered\":false,\"deviceAccount\":\"deviceAccount\",\"enteredAt\":\"2024-01-01T00:00:00Z\",\"wrapUpCallId\":\"00000000-0000-4000-8000-000000000000\"}",
+        "value": {
+          "agentId": "00000000-0000-4000-8000-000000000000",
+          "state": "LOGGED_OUT",
+          "reason": "LOGIN",
+          "availability": "LOGGED_OUT",
+          "extensionNumber": "extensionNumber",
+          "sipDomain": "sipDomain",
+          "isDeviceRegistered": false,
+          "deviceAccount": "deviceAccount",
+          "enteredAt": "2024-01-01T00:00:00Z",
+          "wrapUpCallId": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    },
+    {
+      "id": "behavior-9",
+      "operationId": "createAgentSipSession",
+      "kinds": ["auth-application", "error-response", "json-response"],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/agent/sip-session",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["agent:act"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["agent:act"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/agent/sip-session",
+        "query": "",
+        "url": "https://behavior.test/agent/sip-session",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"sipDomain\":\"sipDomain\",\"wssUrl\":\"https://example.com\",\"account\":\"account\",\"a1Hash\":\"a1Hash\",\"expiresAt\":\"2024-01-01T00:00:00Z\"}",
+        "value": {
+          "sipDomain": "sipDomain",
+          "wssUrl": "https://example.com",
+          "account": "account",
+          "a1Hash": "a1Hash",
+          "expiresAt": "2024-01-01T00:00:00Z"
+        }
+      }
+    },
+    {
+      "id": "behavior-10",
+      "operationId": "deleteAgentSipSession",
+      "kinds": ["auth-application", "empty-response", "error-response"],
+      "request": {
+        "method": "DELETE",
+        "pathTemplate": "/agent/sip-session",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["agent:act"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["agent:act"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "DELETE",
+        "path": "/agent/sip-session",
+        "query": "",
+        "url": "https://behavior.test/agent/sip-session",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "empty",
+        "status": 204,
+        "mediaType": null,
+        "body": "",
+        "value": null
+      }
+    },
+    {
+      "id": "behavior-11",
+      "operationId": "listAgents",
+      "kinds": ["auth-application", "error-response", "json-response"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/agents",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["agent:manage"]
+          },
+          {
+            "apiKeyBearer": ["agent:manage"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/agents",
+        "query": "",
+        "url": "https://behavior.test/agents",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"items\":[{\"agentId\":\"00000000-0000-4000-8000-000000000000\",\"userId\":\"00000000-0000-4000-8000-000000000000\",\"username\":\"Example Name\",\"displayName\":\"Example Name\",\"state\":\"LOGGED_OUT\",\"reason\":\"LOGIN\",\"availability\":\"LOGGED_OUT\",\"extensionNumber\":\"extensionNumber\",\"enteredAt\":\"2024-01-01T00:00:00Z\",\"isOnCall\":false,\"currentCallId\":\"00000000-0000-4000-8000-000000000000\",\"isRegistered\":false,\"callcenterName\":\"Example Name\",\"isAutoAnswer\":false,\"defaultExtensionId\":\"00000000-0000-4000-8000-000000000000\",\"defaultExtensionNumber\":\"defaultExtensionNumber\"}]}",
+        "value": {
+          "items": [
+            {
+              "agentId": "00000000-0000-4000-8000-000000000000",
+              "userId": "00000000-0000-4000-8000-000000000000",
+              "username": "Example Name",
+              "displayName": "Example Name",
+              "state": "LOGGED_OUT",
+              "reason": "LOGIN",
+              "availability": "LOGGED_OUT",
+              "extensionNumber": "extensionNumber",
+              "enteredAt": "2024-01-01T00:00:00Z",
+              "isOnCall": false,
+              "currentCallId": "00000000-0000-4000-8000-000000000000",
+              "isRegistered": false,
+              "callcenterName": "Example Name",
+              "isAutoAnswer": false,
+              "defaultExtensionId": "00000000-0000-4000-8000-000000000000",
+              "defaultExtensionNumber": "defaultExtensionNumber"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "behavior-12",
+      "operationId": "createAgent",
+      "kinds": ["auth-application", "error-response", "json-request", "json-response"],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/agents",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "body": {
+          "userId": "00000000-0000-4000-8000-000000000000",
+          "callcenterName": "Example Name",
+          "isAutoAnswer": false,
+          "defaultExtensionId": "00000000-0000-4000-8000-000000000000"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["config:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["config:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/agents",
+        "query": "",
+        "url": "https://behavior.test/agents",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"userId\":\"00000000-0000-4000-8000-000000000000\",\"callcenterName\":\"Example Name\",\"isAutoAnswer\":false,\"defaultExtensionId\":\"00000000-0000-4000-8000-000000000000\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"agentId\":\"00000000-0000-4000-8000-000000000000\",\"userId\":\"00000000-0000-4000-8000-000000000000\",\"callcenterName\":\"Example Name\",\"isAutoAnswer\":false,\"defaultExtensionId\":\"00000000-0000-4000-8000-000000000000\"}",
+        "value": {
+          "agentId": "00000000-0000-4000-8000-000000000000",
+          "userId": "00000000-0000-4000-8000-000000000000",
+          "callcenterName": "Example Name",
+          "isAutoAnswer": false,
+          "defaultExtensionId": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    },
+    {
+      "id": "behavior-13",
+      "operationId": "updateAgent",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "PUT",
+        "pathTemplate": "/agents/{agentId}",
+        "pathParameters": {
+          "agentId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "userId": "00000000-0000-4000-8000-000000000000",
+          "callcenterName": "Example Name",
+          "isAutoAnswer": false,
+          "defaultExtensionId": "00000000-0000-4000-8000-000000000000"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["config:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["config:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "PUT",
+        "path": "/agents/00000000-0000-4000-8000-000000000000",
+        "query": "",
+        "url": "https://behavior.test/agents/00000000-0000-4000-8000-000000000000",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"userId\":\"00000000-0000-4000-8000-000000000000\",\"callcenterName\":\"Example Name\",\"isAutoAnswer\":false,\"defaultExtensionId\":\"00000000-0000-4000-8000-000000000000\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"agentId\":\"00000000-0000-4000-8000-000000000000\",\"userId\":\"00000000-0000-4000-8000-000000000000\",\"callcenterName\":\"Example Name\",\"isAutoAnswer\":false,\"defaultExtensionId\":\"00000000-0000-4000-8000-000000000000\"}",
+        "value": {
+          "agentId": "00000000-0000-4000-8000-000000000000",
+          "userId": "00000000-0000-4000-8000-000000000000",
+          "callcenterName": "Example Name",
+          "isAutoAnswer": false,
+          "defaultExtensionId": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    },
+    {
+      "id": "behavior-14",
+      "operationId": "deleteAgent",
+      "kinds": ["auth-application", "empty-response", "error-response", "path-serialization"],
+      "request": {
+        "method": "DELETE",
+        "pathTemplate": "/agents/{agentId}",
+        "pathParameters": {
+          "agentId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["config:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["config:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "DELETE",
+        "path": "/agents/00000000-0000-4000-8000-000000000000",
+        "query": "",
+        "url": "https://behavior.test/agents/00000000-0000-4000-8000-000000000000",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "empty",
+        "status": 204,
+        "mediaType": null,
+        "body": "",
+        "value": null
+      }
+    },
+    {
+      "id": "behavior-15",
+      "operationId": "listUsers",
+      "kinds": ["auth-application", "error-response", "json-response"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/users",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["config:read"]
+          },
+          {
+            "apiKeyBearer": ["config:read"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/users",
+        "query": "",
+        "url": "https://behavior.test/users",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"items\":[{\"userId\":\"00000000-0000-4000-8000-000000000000\",\"username\":\"Example Name\",\"displayName\":\"Example Name\",\"role\":\"AGENT\",\"status\":\"ACTIVE\",\"agentId\":\"00000000-0000-4000-8000-000000000000\",\"callcenterName\":\"Example Name\",\"extensionNumber\":\"extensionNumber\",\"locale\":\"locale\"}]}",
+        "value": {
+          "items": [
+            {
+              "userId": "00000000-0000-4000-8000-000000000000",
+              "username": "Example Name",
+              "displayName": "Example Name",
+              "role": "AGENT",
+              "status": "ACTIVE",
+              "agentId": "00000000-0000-4000-8000-000000000000",
+              "callcenterName": "Example Name",
+              "extensionNumber": "extensionNumber",
+              "locale": "locale"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "behavior-16",
+      "operationId": "createUser",
+      "kinds": ["auth-application", "error-response", "json-request", "json-response"],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/users",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "body": {
+          "username": "a",
+          "displayName": "Example Name",
+          "role": "AGENT",
+          "password": "xxxxxxxx",
+          "locale": "locale"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["users:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["users:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/users",
+        "query": "",
+        "url": "https://behavior.test/users",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"username\":\"a\",\"displayName\":\"Example Name\",\"role\":\"AGENT\",\"password\":\"xxxxxxxx\",\"locale\":\"locale\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"userId\":\"00000000-0000-4000-8000-000000000000\",\"username\":\"Example Name\",\"displayName\":\"Example Name\",\"role\":\"AGENT\",\"status\":\"ACTIVE\",\"agentId\":\"00000000-0000-4000-8000-000000000000\",\"callcenterName\":\"Example Name\",\"extensionNumber\":\"extensionNumber\",\"locale\":\"locale\"}",
+        "value": {
+          "userId": "00000000-0000-4000-8000-000000000000",
+          "username": "Example Name",
+          "displayName": "Example Name",
+          "role": "AGENT",
+          "status": "ACTIVE",
+          "agentId": "00000000-0000-4000-8000-000000000000",
+          "callcenterName": "Example Name",
+          "extensionNumber": "extensionNumber",
+          "locale": "locale"
+        }
+      }
+    },
+    {
+      "id": "behavior-17",
+      "operationId": "updateUser",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "PUT",
+        "pathTemplate": "/users/{userId}",
+        "pathParameters": {
+          "userId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "username": "a",
+          "displayName": "Example Name",
+          "role": "AGENT",
+          "status": "ACTIVE",
+          "locale": "locale"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["users:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["users:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "PUT",
+        "path": "/users/00000000-0000-4000-8000-000000000000",
+        "query": "",
+        "url": "https://behavior.test/users/00000000-0000-4000-8000-000000000000",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"username\":\"a\",\"displayName\":\"Example Name\",\"role\":\"AGENT\",\"status\":\"ACTIVE\",\"locale\":\"locale\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"userId\":\"00000000-0000-4000-8000-000000000000\",\"username\":\"Example Name\",\"displayName\":\"Example Name\",\"role\":\"AGENT\",\"status\":\"ACTIVE\",\"agentId\":\"00000000-0000-4000-8000-000000000000\",\"callcenterName\":\"Example Name\",\"extensionNumber\":\"extensionNumber\",\"locale\":\"locale\"}",
+        "value": {
+          "userId": "00000000-0000-4000-8000-000000000000",
+          "username": "Example Name",
+          "displayName": "Example Name",
+          "role": "AGENT",
+          "status": "ACTIVE",
+          "agentId": "00000000-0000-4000-8000-000000000000",
+          "callcenterName": "Example Name",
+          "extensionNumber": "extensionNumber",
+          "locale": "locale"
+        }
+      }
+    },
+    {
+      "id": "behavior-18",
+      "operationId": "resetUserPassword",
+      "kinds": [
+        "auth-application",
+        "empty-response",
+        "error-response",
+        "json-request",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/users/{userId}/password",
+        "pathParameters": {
+          "userId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "password": "xxxxxxxx"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["users:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["users:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/users/00000000-0000-4000-8000-000000000000/password",
+        "query": "",
+        "url": "https://behavior.test/users/00000000-0000-4000-8000-000000000000/password",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"password\":\"xxxxxxxx\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "empty",
+        "status": 204,
+        "mediaType": null,
+        "body": "",
+        "value": null
+      }
+    },
+    {
+      "id": "behavior-19",
+      "operationId": "forceLogoutAgent",
+      "kinds": ["auth-application", "error-response", "json-response", "path-serialization"],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/agents/{agentId}/force-logout",
+        "pathParameters": {
+          "agentId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["agent:manage"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["agent:manage"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/agents/00000000-0000-4000-8000-000000000000/force-logout",
+        "query": "",
+        "url": "https://behavior.test/agents/00000000-0000-4000-8000-000000000000/force-logout",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"agentId\":\"00000000-0000-4000-8000-000000000000\",\"state\":\"LOGGED_OUT\",\"reason\":\"LOGIN\",\"availability\":\"LOGGED_OUT\",\"extensionNumber\":\"extensionNumber\",\"sipDomain\":\"sipDomain\",\"isDeviceRegistered\":false,\"deviceAccount\":\"deviceAccount\",\"enteredAt\":\"2024-01-01T00:00:00Z\",\"wrapUpCallId\":\"00000000-0000-4000-8000-000000000000\"}",
+        "value": {
+          "agentId": "00000000-0000-4000-8000-000000000000",
+          "state": "LOGGED_OUT",
+          "reason": "LOGIN",
+          "availability": "LOGGED_OUT",
+          "extensionNumber": "extensionNumber",
+          "sipDomain": "sipDomain",
+          "isDeviceRegistered": false,
+          "deviceAccount": "deviceAccount",
+          "enteredAt": "2024-01-01T00:00:00Z",
+          "wrapUpCallId": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    },
+    {
+      "id": "behavior-20",
+      "operationId": "listCalls",
+      "kinds": ["auth-application", "error-response", "json-response"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/calls",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["calls:read:all"]
+          },
+          {
+            "apiKeyBearer": ["calls:read:all"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/calls",
+        "query": "",
+        "url": "https://behavior.test/calls",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"items\":[{\"callId\":\"00000000-0000-4000-8000-000000000000\",\"callType\":\"INBOUND\",\"state\":\"CREATED\",\"language\":\"language\",\"queueId\":\"00000000-0000-4000-8000-000000000000\",\"parties\":[{\"partyId\":\"00000000-0000-4000-8000-000000000000\",\"channelId\":\"channel-1\",\"role\":\"ORIGINATOR\",\"state\":\"DIALING\",\"number\":\"number\",\"otherNumber\":\"otherNumber\",\"agentId\":\"00000000-0000-4000-8000-000000000000\",\"isBotLeg\":false,\"isMuted\":false,\"createdAt\":\"2024-01-01T00:00:00Z\",\"answeredAt\":\"2024-01-01T00:00:00Z\",\"releasedAt\":\"2024-01-01T00:00:00Z\"}],\"userData\":{},\"queue\":{\"name\":\"Example Name\",\"joinedAt\":\"2024-01-01T00:00:00Z\",\"bridgedAt\":\"2024-01-01T00:00:00Z\",\"leftAt\":\"2024-01-01T00:00:00Z\",\"cause\":\"cause\",\"cancelReason\":\"cancelReason\",\"agentId\":\"00000000-0000-4000-8000-000000000000\"},\"createdAt\":\"2024-01-01T00:00:00Z\",\"endedAt\":\"2024-01-01T00:00:00Z\"}]}",
+        "value": {
+          "items": [
+            {
+              "callId": "00000000-0000-4000-8000-000000000000",
+              "callType": "INBOUND",
+              "state": "CREATED",
+              "language": "language",
+              "queueId": "00000000-0000-4000-8000-000000000000",
+              "parties": [
+                {
+                  "partyId": "00000000-0000-4000-8000-000000000000",
+                  "channelId": "channel-1",
+                  "role": "ORIGINATOR",
+                  "state": "DIALING",
+                  "number": "number",
+                  "otherNumber": "otherNumber",
+                  "agentId": "00000000-0000-4000-8000-000000000000",
+                  "isBotLeg": false,
+                  "isMuted": false,
+                  "createdAt": "2024-01-01T00:00:00Z",
+                  "answeredAt": "2024-01-01T00:00:00Z",
+                  "releasedAt": "2024-01-01T00:00:00Z"
+                }
+              ],
+              "userData": {},
+              "queue": {
+                "name": "Example Name",
+                "joinedAt": "2024-01-01T00:00:00Z",
+                "bridgedAt": "2024-01-01T00:00:00Z",
+                "leftAt": "2024-01-01T00:00:00Z",
+                "cause": "cause",
+                "cancelReason": "cancelReason",
+                "agentId": "00000000-0000-4000-8000-000000000000"
+              },
+              "createdAt": "2024-01-01T00:00:00Z",
+              "endedAt": "2024-01-01T00:00:00Z"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "behavior-21",
+      "operationId": "createCall",
+      "kinds": ["auth-application", "error-response", "json-request", "json-response"],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/calls",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "body": {
+          "callId": "00000000-0000-4000-8000-000000000000",
+          "kind": "AGENT_OUTBOUND",
+          "to": "to",
+          "did": "d-1",
+          "extensionNumber": "extensionNumber",
+          "language": "",
+          "callbackId": "00000000-0000-4000-8000-000000000000",
+          "userData": {
+            "key": "key"
+          }
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["calls:create"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["calls:create"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/calls",
+        "query": "",
+        "url": "https://behavior.test/calls",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"callId\":\"00000000-0000-4000-8000-000000000000\",\"kind\":\"AGENT_OUTBOUND\",\"to\":\"to\",\"did\":\"d-1\",\"extensionNumber\":\"extensionNumber\",\"language\":\"\",\"callbackId\":\"00000000-0000-4000-8000-000000000000\",\"userData\":{\"key\":\"key\"}}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"callId\":\"00000000-0000-4000-8000-000000000000\",\"isDuplicate\":false}",
+        "value": {
+          "callId": "00000000-0000-4000-8000-000000000000",
+          "isDuplicate": false
+        }
+      }
+    },
+    {
+      "id": "behavior-22",
+      "operationId": "listMyCalls",
+      "kinds": ["auth-application", "error-response", "json-response"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/calls/mine",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["calls:read:own"]
+          },
+          {
+            "apiKeyBearer": ["calls:read:own"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/calls/mine",
+        "query": "",
+        "url": "https://behavior.test/calls/mine",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"items\":[{\"callId\":\"00000000-0000-4000-8000-000000000000\",\"callType\":\"INBOUND\",\"state\":\"CREATED\",\"language\":\"language\",\"queueId\":\"00000000-0000-4000-8000-000000000000\",\"parties\":[{\"partyId\":\"00000000-0000-4000-8000-000000000000\",\"channelId\":\"channel-1\",\"role\":\"ORIGINATOR\",\"state\":\"DIALING\",\"number\":\"number\",\"otherNumber\":\"otherNumber\",\"agentId\":\"00000000-0000-4000-8000-000000000000\",\"isBotLeg\":false,\"isMuted\":false,\"createdAt\":\"2024-01-01T00:00:00Z\",\"answeredAt\":\"2024-01-01T00:00:00Z\",\"releasedAt\":\"2024-01-01T00:00:00Z\"}],\"userData\":{},\"queue\":{\"name\":\"Example Name\",\"joinedAt\":\"2024-01-01T00:00:00Z\",\"bridgedAt\":\"2024-01-01T00:00:00Z\",\"leftAt\":\"2024-01-01T00:00:00Z\",\"cause\":\"cause\",\"cancelReason\":\"cancelReason\",\"agentId\":\"00000000-0000-4000-8000-000000000000\"},\"createdAt\":\"2024-01-01T00:00:00Z\",\"endedAt\":\"2024-01-01T00:00:00Z\"}]}",
+        "value": {
+          "items": [
+            {
+              "callId": "00000000-0000-4000-8000-000000000000",
+              "callType": "INBOUND",
+              "state": "CREATED",
+              "language": "language",
+              "queueId": "00000000-0000-4000-8000-000000000000",
+              "parties": [
+                {
+                  "partyId": "00000000-0000-4000-8000-000000000000",
+                  "channelId": "channel-1",
+                  "role": "ORIGINATOR",
+                  "state": "DIALING",
+                  "number": "number",
+                  "otherNumber": "otherNumber",
+                  "agentId": "00000000-0000-4000-8000-000000000000",
+                  "isBotLeg": false,
+                  "isMuted": false,
+                  "createdAt": "2024-01-01T00:00:00Z",
+                  "answeredAt": "2024-01-01T00:00:00Z",
+                  "releasedAt": "2024-01-01T00:00:00Z"
+                }
+              ],
+              "userData": {},
+              "queue": {
+                "name": "Example Name",
+                "joinedAt": "2024-01-01T00:00:00Z",
+                "bridgedAt": "2024-01-01T00:00:00Z",
+                "leftAt": "2024-01-01T00:00:00Z",
+                "cause": "cause",
+                "cancelReason": "cancelReason",
+                "agentId": "00000000-0000-4000-8000-000000000000"
+              },
+              "createdAt": "2024-01-01T00:00:00Z",
+              "endedAt": "2024-01-01T00:00:00Z"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "behavior-23",
+      "operationId": "listWaitingCalls",
+      "kinds": ["auth-application", "error-response", "json-response"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/calls/waiting",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["calls:read:own"]
+          },
+          {
+            "apiKeyBearer": ["calls:read:own"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/calls/waiting",
+        "query": "",
+        "url": "https://behavior.test/calls/waiting",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"items\":[{\"callId\":\"00000000-0000-4000-8000-000000000000\",\"callType\":\"INBOUND\",\"fromNumber\":\"fromNumber\",\"queueId\":\"00000000-0000-4000-8000-000000000000\",\"queueName\":\"Example Name\",\"queueDisplayName\":\"Example Name\",\"slaThresholdSec\":1,\"joinedAt\":\"2024-01-01T00:00:00Z\",\"language\":\"language\",\"userData\":{}}],\"queues\":[{\"queueId\":\"00000000-0000-4000-8000-000000000000\",\"name\":\"Example Name\",\"displayName\":\"Example Name\",\"slaThresholdSec\":1}]}",
+        "value": {
+          "items": [
+            {
+              "callId": "00000000-0000-4000-8000-000000000000",
+              "callType": "INBOUND",
+              "fromNumber": "fromNumber",
+              "queueId": "00000000-0000-4000-8000-000000000000",
+              "queueName": "Example Name",
+              "queueDisplayName": "Example Name",
+              "slaThresholdSec": 1,
+              "joinedAt": "2024-01-01T00:00:00Z",
+              "language": "language",
+              "userData": {}
+            }
+          ],
+          "queues": [
+            {
+              "queueId": "00000000-0000-4000-8000-000000000000",
+              "name": "Example Name",
+              "displayName": "Example Name",
+              "slaThresholdSec": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "behavior-24",
+      "operationId": "answerCall",
+      "kinds": ["auth-application", "empty-response", "error-response", "path-serialization"],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/calls/{callId}/answer",
+        "pathParameters": {
+          "callId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["calls:control"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["calls:control"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/calls/00000000-0000-4000-8000-000000000000/answer",
+        "query": "",
+        "url": "https://behavior.test/calls/00000000-0000-4000-8000-000000000000/answer",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "empty",
+        "status": 204,
+        "mediaType": null,
+        "body": "",
+        "value": null
+      }
+    },
+    {
+      "id": "behavior-25",
+      "operationId": "holdCall",
+      "kinds": ["auth-application", "empty-response", "error-response", "path-serialization"],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/calls/{callId}/hold",
+        "pathParameters": {
+          "callId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["calls:control"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["calls:control"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/calls/00000000-0000-4000-8000-000000000000/hold",
+        "query": "",
+        "url": "https://behavior.test/calls/00000000-0000-4000-8000-000000000000/hold",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "empty",
+        "status": 204,
+        "mediaType": null,
+        "body": "",
+        "value": null
+      }
+    },
+    {
+      "id": "behavior-26",
+      "operationId": "transferCall",
+      "kinds": [
+        "auth-application",
+        "empty-response",
+        "error-response",
+        "json-request",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/calls/{callId}/transfer",
+        "pathParameters": {
+          "callId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "destination": "0"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["calls:control"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["calls:control"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/calls/00000000-0000-4000-8000-000000000000/transfer",
+        "query": "",
+        "url": "https://behavior.test/calls/00000000-0000-4000-8000-000000000000/transfer",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"destination\":\"0\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "empty",
+        "status": 204,
+        "mediaType": null,
+        "body": "",
+        "value": null
+      }
+    },
+    {
+      "id": "behavior-27",
+      "operationId": "sendCallDTMF",
+      "kinds": [
+        "auth-application",
+        "empty-response",
+        "error-response",
+        "json-request",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/calls/{callId}/dtmf",
+        "pathParameters": {
+          "callId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "digits": "a"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["calls:control"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["calls:control"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/calls/00000000-0000-4000-8000-000000000000/dtmf",
+        "query": "",
+        "url": "https://behavior.test/calls/00000000-0000-4000-8000-000000000000/dtmf",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"digits\":\"a\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "empty",
+        "status": 204,
+        "mediaType": null,
+        "body": "",
+        "value": null
+      }
+    },
+    {
+      "id": "behavior-28",
+      "operationId": "monitorCall",
+      "kinds": [
+        "auth-application",
+        "empty-response",
+        "error-response",
+        "json-request",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/calls/{callId}/monitor",
+        "pathParameters": {
+          "callId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "mode": "LISTEN",
+          "agentId": "00000000-0000-4000-8000-000000000000"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["calls:monitor"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["calls:monitor"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/calls/00000000-0000-4000-8000-000000000000/monitor",
+        "query": "",
+        "url": "https://behavior.test/calls/00000000-0000-4000-8000-000000000000/monitor",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"mode\":\"LISTEN\",\"agentId\":\"00000000-0000-4000-8000-000000000000\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "empty",
+        "status": 204,
+        "mediaType": null,
+        "body": "",
+        "value": null
+      }
+    },
+    {
+      "id": "behavior-29",
+      "operationId": "listCallRecordings",
+      "kinds": ["auth-application", "error-response", "json-response", "path-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/calls/{callId}/recordings",
+        "pathParameters": {
+          "callId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["history:read:own"]
+          },
+          {
+            "apiKeyBearer": ["history:read:own"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/calls/00000000-0000-4000-8000-000000000000/recordings",
+        "query": "",
+        "url": "https://behavior.test/calls/00000000-0000-4000-8000-000000000000/recordings",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"items\":[{\"id\":\"00000000-0000-4000-8000-000000000000\",\"callId\":\"00000000-0000-4000-8000-000000000000\",\"backend\":\"backend\",\"bucket\":\"bucket\",\"objectKey\":\"objectKey\",\"sizeBytes\":1,\"durationSec\":1,\"format\":\"2024-01-01T00:00:00Z\",\"createdAt\":\"2024-01-01T00:00:00Z\"}]}",
+        "value": {
+          "items": [
+            {
+              "id": "00000000-0000-4000-8000-000000000000",
+              "callId": "00000000-0000-4000-8000-000000000000",
+              "backend": "backend",
+              "bucket": "bucket",
+              "objectKey": "objectKey",
+              "sizeBytes": 1,
+              "durationSec": 1,
+              "format": "2024-01-01T00:00:00Z",
+              "createdAt": "2024-01-01T00:00:00Z"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "behavior-30",
+      "operationId": "getCallTranscript",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response",
+        "path-serialization",
+        "query-serialization"
+      ],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/calls/{callId}/transcript",
+        "pathParameters": {
+          "callId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [
+          {
+            "name": "sinceSeq",
+            "style": "form",
+            "explode": true,
+            "value": 0,
+            "serialized": "0"
+          },
+          {
+            "name": "limit",
+            "style": "form",
+            "explode": true,
+            "value": 500,
+            "serialized": "500"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["history:read:own"]
+          },
+          {
+            "apiKeyBearer": ["history:read:own"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/calls/00000000-0000-4000-8000-000000000000/transcript",
+        "query": "sinceSeq=0&limit=500",
+        "url": "https://behavior.test/calls/00000000-0000-4000-8000-000000000000/transcript?sinceSeq=0&limit=500",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"items\":[{\"seq\":1,\"occurredAt\":\"2024-01-01T00:00:00Z\",\"speaker\":\"CUSTOMER\",\"kind\":\"TEXT\",\"content\":{},\"partyId\":\"00000000-0000-4000-8000-000000000000\",\"agentId\":\"00000000-0000-4000-8000-000000000000\",\"offsetMs\":1,\"language\":\"language\",\"source\":\"MODEL\",\"provider\":\"provider\",\"utteranceId\":\"utterance-1\"}],\"nextSinceSeq\":1,\"isLive\":false,\"state\":\"IDLE\"}",
+        "value": {
+          "items": [
+            {
+              "seq": 1,
+              "occurredAt": "2024-01-01T00:00:00Z",
+              "speaker": "CUSTOMER",
+              "kind": "TEXT",
+              "content": {},
+              "partyId": "00000000-0000-4000-8000-000000000000",
+              "agentId": "00000000-0000-4000-8000-000000000000",
+              "offsetMs": 1,
+              "language": "language",
+              "source": "MODEL",
+              "provider": "provider",
+              "utteranceId": "utterance-1"
+            }
+          ],
+          "nextSinceSeq": 1,
+          "isLive": false,
+          "state": "IDLE"
+        }
+      }
+    },
+    {
+      "id": "behavior-31",
+      "operationId": "requestPostCallTranscription",
+      "kinds": ["auth-application", "error-response", "json-response", "path-serialization"],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/calls/{callId}/transcription",
+        "pathParameters": {
+          "callId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["quality:review"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["quality:review"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/calls/00000000-0000-4000-8000-000000000000/transcription",
+        "query": "",
+        "url": "https://behavior.test/calls/00000000-0000-4000-8000-000000000000/transcription",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"callId\":\"00000000-0000-4000-8000-000000000000\",\"status\":\"PENDING\",\"model\":\"model\",\"attempts\":0,\"error\":\"error\",\"audioSec\":0,\"requestedAt\":\"2024-01-01T00:00:00Z\",\"startedAt\":\"2024-01-01T00:00:00Z\",\"finishedAt\":\"2024-01-01T00:00:00Z\",\"segments\":[{\"seq\":1,\"channel\":\"CUSTOMER\",\"offsetMs\":0,\"endMs\":0,\"text\":\"text\",\"language\":\"language\"}]}",
+        "value": {
+          "callId": "00000000-0000-4000-8000-000000000000",
+          "status": "PENDING",
+          "model": "model",
+          "attempts": 0,
+          "error": "error",
+          "audioSec": 0,
+          "requestedAt": "2024-01-01T00:00:00Z",
+          "startedAt": "2024-01-01T00:00:00Z",
+          "finishedAt": "2024-01-01T00:00:00Z",
+          "segments": [
+            {
+              "seq": 1,
+              "channel": "CUSTOMER",
+              "offsetMs": 0,
+              "endMs": 0,
+              "text": "text",
+              "language": "language"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "behavior-32",
+      "operationId": "listCallReviews",
+      "kinds": ["auth-application", "error-response", "json-response", "path-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/calls/{callId}/reviews",
+        "pathParameters": {
+          "callId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["quality:review"]
+          },
+          {
+            "apiKeyBearer": ["quality:review"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/calls/00000000-0000-4000-8000-000000000000/reviews",
+        "query": "",
+        "url": "https://behavior.test/calls/00000000-0000-4000-8000-000000000000/reviews",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"items\":[{\"id\":\"00000000-0000-4000-8000-000000000000\",\"recordingId\":\"00000000-0000-4000-8000-000000000000\",\"callId\":\"00000000-0000-4000-8000-000000000000\",\"reviewerId\":\"00000000-0000-4000-8000-000000000000\",\"scores\":{\"key\":1},\"totalScore\":0,\"notes\":\"notes\",\"createdAt\":\"2024-01-01T00:00:00Z\"}]}",
+        "value": {
+          "items": [
+            {
+              "id": "00000000-0000-4000-8000-000000000000",
+              "recordingId": "00000000-0000-4000-8000-000000000000",
+              "callId": "00000000-0000-4000-8000-000000000000",
+              "reviewerId": "00000000-0000-4000-8000-000000000000",
+              "scores": {
+                "key": 1
+              },
+              "totalScore": 0,
+              "notes": "notes",
+              "createdAt": "2024-01-01T00:00:00Z"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "behavior-33",
+      "operationId": "createExtension",
+      "kinds": ["auth-application", "error-response", "json-request", "json-response"],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/extensions",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "body": {
+          "number": "0",
+          "displayName": "Example Name",
+          "isEnabled": false,
+          "password": "xxxxxx"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["config:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["config:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/extensions",
+        "query": "",
+        "url": "https://behavior.test/extensions",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"number\":\"0\",\"displayName\":\"Example Name\",\"isEnabled\":false,\"password\":\"xxxxxx\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"id\":\"00000000-0000-4000-8000-000000000000\",\"number\":\"0\",\"displayName\":\"Example Name\",\"isEnabled\":false,\"createdAt\":\"2024-01-01T00:00:00Z\",\"agentId\":\"00000000-0000-4000-8000-000000000000\"}",
+        "value": {
+          "id": "00000000-0000-4000-8000-000000000000",
+          "number": "0",
+          "displayName": "Example Name",
+          "isEnabled": false,
+          "createdAt": "2024-01-01T00:00:00Z",
+          "agentId": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    },
+    {
+      "id": "behavior-34",
+      "operationId": "deleteExtension",
+      "kinds": ["auth-application", "empty-response", "error-response", "path-serialization"],
+      "request": {
+        "method": "DELETE",
+        "pathTemplate": "/extensions/{extensionId}",
+        "pathParameters": {
+          "extensionId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["config:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["config:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "DELETE",
+        "path": "/extensions/00000000-0000-4000-8000-000000000000",
+        "query": "",
+        "url": "https://behavior.test/extensions/00000000-0000-4000-8000-000000000000",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "empty",
+        "status": 204,
+        "mediaType": null,
+        "body": "",
+        "value": null
+      }
+    },
+    {
+      "id": "behavior-35",
+      "operationId": "revealExtensionPassword",
+      "kinds": ["auth-application", "error-response", "json-response", "path-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/extensions/{extensionId}/password",
+        "pathParameters": {
+          "extensionId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["config:write"]
+          },
+          {
+            "apiKeyBearer": ["config:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/extensions/00000000-0000-4000-8000-000000000000/password",
+        "query": "",
+        "url": "https://behavior.test/extensions/00000000-0000-4000-8000-000000000000/password",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"password\":\"password\"}",
+        "value": {
+          "password": "password"
+        }
+      }
+    },
+    {
+      "id": "behavior-36",
+      "operationId": "listQueueAgents",
+      "kinds": ["auth-application", "error-response", "json-response", "path-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/queues/{queueId}/agents",
+        "pathParameters": {
+          "queueId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["config:read"]
+          },
+          {
+            "apiKeyBearer": ["config:read"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/queues/00000000-0000-4000-8000-000000000000/agents",
+        "query": "",
+        "url": "https://behavior.test/queues/00000000-0000-4000-8000-000000000000/agents",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"items\":[{\"queueId\":\"00000000-0000-4000-8000-000000000000\",\"agentId\":\"00000000-0000-4000-8000-000000000000\",\"displayName\":\"Example Name\",\"level\":1,\"position\":1}]}",
+        "value": {
+          "items": [
+            {
+              "queueId": "00000000-0000-4000-8000-000000000000",
+              "agentId": "00000000-0000-4000-8000-000000000000",
+              "displayName": "Example Name",
+              "level": 1,
+              "position": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "behavior-37",
+      "operationId": "staffQueue",
+      "kinds": [
+        "auth-application",
+        "empty-response",
+        "error-response",
+        "json-request",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "PUT",
+        "pathTemplate": "/queues/{queueId}/agents",
+        "pathParameters": {
+          "queueId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "agentId": "00000000-0000-4000-8000-000000000000",
+          "level": 1,
+          "position": 1
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["config:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["config:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "PUT",
+        "path": "/queues/00000000-0000-4000-8000-000000000000/agents",
+        "query": "",
+        "url": "https://behavior.test/queues/00000000-0000-4000-8000-000000000000/agents",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"agentId\":\"00000000-0000-4000-8000-000000000000\",\"level\":1,\"position\":1}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "empty",
+        "status": 204,
+        "mediaType": null,
+        "body": "",
+        "value": null
+      }
+    },
+    {
+      "id": "behavior-38",
+      "operationId": "unstaffQueue",
+      "kinds": ["auth-application", "empty-response", "error-response", "path-serialization"],
+      "request": {
+        "method": "DELETE",
+        "pathTemplate": "/queues/{queueId}/agents/{agentId}",
+        "pathParameters": {
+          "queueId": "00000000-0000-4000-8000-000000000000",
+          "agentId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["config:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["config:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "DELETE",
+        "path": "/queues/00000000-0000-4000-8000-000000000000/agents/00000000-0000-4000-8000-000000000000",
+        "query": "",
+        "url": "https://behavior.test/queues/00000000-0000-4000-8000-000000000000/agents/00000000-0000-4000-8000-000000000000",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "empty",
+        "status": 204,
+        "mediaType": null,
+        "body": "",
+        "value": null
+      }
+    },
+    {
+      "id": "behavior-39",
+      "operationId": "updateFlowDraft",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "PUT",
+        "pathTemplate": "/flows/{flowId}",
+        "pathParameters": {
+          "flowId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "name": "Example Name",
+          "spec": {}
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["config:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["config:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "PUT",
+        "path": "/flows/00000000-0000-4000-8000-000000000000",
+        "query": "",
+        "url": "https://behavior.test/flows/00000000-0000-4000-8000-000000000000",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"name\":\"Example Name\",\"spec\":{}}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"flowId\":\"00000000-0000-4000-8000-000000000000\",\"slug\":\"slug\",\"name\":\"Example Name\",\"publishedRevisionId\":\"00000000-0000-4000-8000-000000000000\",\"publishedAt\":\"2024-01-01T00:00:00Z\",\"hasUnpublishedChanges\":false,\"createdAt\":\"2024-01-01T00:00:00Z\",\"updatedAt\":\"2024-01-01T00:00:00Z\"}",
+        "value": {
+          "flowId": "00000000-0000-4000-8000-000000000000",
+          "slug": "slug",
+          "name": "Example Name",
+          "publishedRevisionId": "00000000-0000-4000-8000-000000000000",
+          "publishedAt": "2024-01-01T00:00:00Z",
+          "hasUnpublishedChanges": false,
+          "createdAt": "2024-01-01T00:00:00Z",
+          "updatedAt": "2024-01-01T00:00:00Z"
+        }
+      }
+    },
+    {
+      "id": "behavior-40",
+      "operationId": "publishFlow",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/flows/{flowId}/publish",
+        "pathParameters": {
+          "flowId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "note": "note"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["config:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["config:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/flows/00000000-0000-4000-8000-000000000000/publish",
+        "query": "",
+        "url": "https://behavior.test/flows/00000000-0000-4000-8000-000000000000/publish",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"note\":\"note\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"flowId\":\"00000000-0000-4000-8000-000000000000\",\"slug\":\"slug\",\"name\":\"Example Name\",\"publishedRevisionId\":\"00000000-0000-4000-8000-000000000000\",\"publishedAt\":\"2024-01-01T00:00:00Z\",\"hasUnpublishedChanges\":false,\"createdAt\":\"2024-01-01T00:00:00Z\",\"updatedAt\":\"2024-01-01T00:00:00Z\"}",
+        "value": {
+          "flowId": "00000000-0000-4000-8000-000000000000",
+          "slug": "slug",
+          "name": "Example Name",
+          "publishedRevisionId": "00000000-0000-4000-8000-000000000000",
+          "publishedAt": "2024-01-01T00:00:00Z",
+          "hasUnpublishedChanges": false,
+          "createdAt": "2024-01-01T00:00:00Z",
+          "updatedAt": "2024-01-01T00:00:00Z"
+        }
+      }
+    },
+    {
+      "id": "behavior-41",
+      "operationId": "getFlowRevision",
+      "kinds": ["auth-application", "error-response", "json-response", "path-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/flows/{flowId}/revisions/{revisionId}",
+        "pathParameters": {
+          "flowId": "00000000-0000-4000-8000-000000000000",
+          "revisionId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["config:read"]
+          },
+          {
+            "apiKeyBearer": ["config:read"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/flows/00000000-0000-4000-8000-000000000000/revisions/00000000-0000-4000-8000-000000000000",
+        "query": "",
+        "url": "https://behavior.test/flows/00000000-0000-4000-8000-000000000000/revisions/00000000-0000-4000-8000-000000000000",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"revisionId\":\"00000000-0000-4000-8000-000000000000\",\"note\":\"note\",\"createdAt\":\"2024-01-01T00:00:00Z\",\"isPublished\":false,\"spec\":{}}",
+        "value": {
+          "revisionId": "00000000-0000-4000-8000-000000000000",
+          "note": "note",
+          "createdAt": "2024-01-01T00:00:00Z",
+          "isPublished": false,
+          "spec": {}
+        }
+      }
+    },
+    {
+      "id": "behavior-42",
+      "operationId": "listCDRs",
+      "kinds": ["auth-application", "error-response", "json-response", "query-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/cdrs",
+        "pathParameters": {},
+        "query": [
+          {
+            "name": "status",
+            "style": "form",
+            "explode": true,
+            "value": "ANSWERED",
+            "serialized": "ANSWERED"
+          },
+          {
+            "name": "did",
+            "style": "form",
+            "explode": true,
+            "value": "d-1",
+            "serialized": "d-1"
+          },
+          {
+            "name": "fromNumber",
+            "style": "form",
+            "explode": true,
+            "value": "fromNumber",
+            "serialized": "fromNumber"
+          },
+          {
+            "name": "from",
+            "style": "form",
+            "explode": true,
+            "value": "2024-01-01T00:00:00Z",
+            "serialized": "2024-01-01T00:00:00Z"
+          },
+          {
+            "name": "to",
+            "style": "form",
+            "explode": true,
+            "value": "2024-01-01T00:00:00Z",
+            "serialized": "2024-01-01T00:00:00Z"
+          },
+          {
+            "name": "queueId",
+            "style": "form",
+            "explode": true,
+            "value": "00000000-0000-4000-8000-000000000000",
+            "serialized": "00000000-0000-4000-8000-000000000000"
+          },
+          {
+            "name": "campaignId",
+            "style": "form",
+            "explode": true,
+            "value": "00000000-0000-4000-8000-000000000000",
+            "serialized": "00000000-0000-4000-8000-000000000000"
+          },
+          {
+            "name": "agentId",
+            "style": "form",
+            "explode": true,
+            "value": "00000000-0000-4000-8000-000000000000",
+            "serialized": "00000000-0000-4000-8000-000000000000"
+          },
+          {
+            "name": "limit",
+            "style": "form",
+            "explode": true,
+            "value": 50,
+            "serialized": "50"
+          },
+          {
+            "name": "offset",
+            "style": "form",
+            "explode": true,
+            "value": 0,
+            "serialized": "0"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["history:read:all"]
+          },
+          {
+            "apiKeyBearer": ["history:read:all"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/cdrs",
+        "query": "status=ANSWERED&did=d-1&fromNumber=fromNumber&from=2024-01-01T00%3A00%3A00Z&to=2024-01-01T00%3A00%3A00Z&queueId=00000000-0000-4000-8000-000000000000&campaignId=00000000-0000-4000-8000-000000000000&agentId=00000000-0000-4000-8000-000000000000&limit=50&offset=0",
+        "url": "https://behavior.test/cdrs?status=ANSWERED&did=d-1&fromNumber=fromNumber&from=2024-01-01T00%3A00%3A00Z&to=2024-01-01T00%3A00%3A00Z&queueId=00000000-0000-4000-8000-000000000000&campaignId=00000000-0000-4000-8000-000000000000&agentId=00000000-0000-4000-8000-000000000000&limit=50&offset=0",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"items\":[{\"callId\":\"00000000-0000-4000-8000-000000000000\",\"startedAt\":\"2024-01-01T00:00:00Z\",\"answeredAt\":\"2024-01-01T00:00:00Z\",\"endedAt\":\"2024-01-01T00:00:00Z\",\"callType\":\"INBOUND\",\"language\":\"language\",\"fromNumber\":\"fromNumber\",\"toNumber\":\"toNumber\",\"did\":\"d-1\",\"flowId\":\"00000000-0000-4000-8000-000000000000\",\"queueId\":\"00000000-0000-4000-8000-000000000000\",\"agentIds\":[\"00000000-0000-4000-8000-000000000000\"],\"primaryAgentId\":\"00000000-0000-4000-8000-000000000000\",\"ringSec\":1,\"botSec\":1,\"queueWaitSec\":1,\"talkSec\":1,\"billSec\":1,\"totalSec\":100,\"status\":\"ANSWERED\",\"hangupCause\":\"hangupCause\",\"missedReason\":\"SHORT_ABANDONED\",\"disposition\":\"disposition\",\"isContained\":false,\"hasRecording\":false,\"unbackedClaims\":[\"TRANSFER\"],\"userData\":{},\"tech\":{},\"legs\":[{\"kind\":\"TRUNK\",\"label\":\"label\",\"durationSec\":1,\"note\":\"note\"}],\"wrapUp\":{\"agentId\":\"00000000-0000-4000-8000-000000000000\",\"dispositionCode\":\"dispositionCode\",\"dispositionLabel\":\"dispositionLabel\",\"note\":\"note\",\"createdAt\":\"2024-01-01T00:00:00Z\",\"isConfirmed\":false,\"draftDispositionCode\":\"draftDispositionCode\",\"draftNote\":\"draftNote\",\"draftGeneratedAt\":\"2024-01-01T00:00:00Z\"},\"campaignId\":\"00000000-0000-4000-8000-000000000000\"}],\"total\":100}",
+        "value": {
+          "items": [
+            {
+              "callId": "00000000-0000-4000-8000-000000000000",
+              "startedAt": "2024-01-01T00:00:00Z",
+              "answeredAt": "2024-01-01T00:00:00Z",
+              "endedAt": "2024-01-01T00:00:00Z",
+              "callType": "INBOUND",
+              "language": "language",
+              "fromNumber": "fromNumber",
+              "toNumber": "toNumber",
+              "did": "d-1",
+              "flowId": "00000000-0000-4000-8000-000000000000",
+              "queueId": "00000000-0000-4000-8000-000000000000",
+              "agentIds": ["00000000-0000-4000-8000-000000000000"],
+              "primaryAgentId": "00000000-0000-4000-8000-000000000000",
+              "ringSec": 1,
+              "botSec": 1,
+              "queueWaitSec": 1,
+              "talkSec": 1,
+              "billSec": 1,
+              "totalSec": 100,
+              "status": "ANSWERED",
+              "hangupCause": "hangupCause",
+              "missedReason": "SHORT_ABANDONED",
+              "disposition": "disposition",
+              "isContained": false,
+              "hasRecording": false,
+              "unbackedClaims": ["TRANSFER"],
+              "userData": {},
+              "tech": {},
+              "legs": [
+                {
+                  "kind": "TRUNK",
+                  "label": "label",
+                  "durationSec": 1,
+                  "note": "note"
+                }
+              ],
+              "wrapUp": {
+                "agentId": "00000000-0000-4000-8000-000000000000",
+                "dispositionCode": "dispositionCode",
+                "dispositionLabel": "dispositionLabel",
+                "note": "note",
+                "createdAt": "2024-01-01T00:00:00Z",
+                "isConfirmed": false,
+                "draftDispositionCode": "draftDispositionCode",
+                "draftNote": "draftNote",
+                "draftGeneratedAt": "2024-01-01T00:00:00Z"
+              },
+              "campaignId": "00000000-0000-4000-8000-000000000000"
+            }
+          ],
+          "total": 100
+        }
+      }
+    },
+    {
+      "id": "behavior-43",
+      "operationId": "listMyCDRs",
+      "kinds": ["auth-application", "error-response", "json-response", "query-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/cdrs/mine",
+        "pathParameters": {},
+        "query": [
+          {
+            "name": "status",
+            "style": "form",
+            "explode": true,
+            "value": "ANSWERED",
+            "serialized": "ANSWERED"
+          },
+          {
+            "name": "fromNumber",
+            "style": "form",
+            "explode": true,
+            "value": "fromNumber",
+            "serialized": "fromNumber"
+          },
+          {
+            "name": "from",
+            "style": "form",
+            "explode": true,
+            "value": "2024-01-01T00:00:00Z",
+            "serialized": "2024-01-01T00:00:00Z"
+          },
+          {
+            "name": "to",
+            "style": "form",
+            "explode": true,
+            "value": "2024-01-01T00:00:00Z",
+            "serialized": "2024-01-01T00:00:00Z"
+          },
+          {
+            "name": "limit",
+            "style": "form",
+            "explode": true,
+            "value": 50,
+            "serialized": "50"
+          },
+          {
+            "name": "offset",
+            "style": "form",
+            "explode": true,
+            "value": 0,
+            "serialized": "0"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["history:read:own"]
+          },
+          {
+            "apiKeyBearer": ["history:read:own"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/cdrs/mine",
+        "query": "status=ANSWERED&fromNumber=fromNumber&from=2024-01-01T00%3A00%3A00Z&to=2024-01-01T00%3A00%3A00Z&limit=50&offset=0",
+        "url": "https://behavior.test/cdrs/mine?status=ANSWERED&fromNumber=fromNumber&from=2024-01-01T00%3A00%3A00Z&to=2024-01-01T00%3A00%3A00Z&limit=50&offset=0",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"items\":[{\"callId\":\"00000000-0000-4000-8000-000000000000\",\"startedAt\":\"2024-01-01T00:00:00Z\",\"answeredAt\":\"2024-01-01T00:00:00Z\",\"endedAt\":\"2024-01-01T00:00:00Z\",\"callType\":\"INBOUND\",\"language\":\"language\",\"fromNumber\":\"fromNumber\",\"toNumber\":\"toNumber\",\"did\":\"d-1\",\"flowId\":\"00000000-0000-4000-8000-000000000000\",\"queueId\":\"00000000-0000-4000-8000-000000000000\",\"agentIds\":[\"00000000-0000-4000-8000-000000000000\"],\"primaryAgentId\":\"00000000-0000-4000-8000-000000000000\",\"ringSec\":1,\"botSec\":1,\"queueWaitSec\":1,\"talkSec\":1,\"billSec\":1,\"totalSec\":100,\"status\":\"ANSWERED\",\"hangupCause\":\"hangupCause\",\"missedReason\":\"SHORT_ABANDONED\",\"disposition\":\"disposition\",\"isContained\":false,\"hasRecording\":false,\"unbackedClaims\":[\"TRANSFER\"],\"userData\":{},\"tech\":{},\"legs\":[{\"kind\":\"TRUNK\",\"label\":\"label\",\"durationSec\":1,\"note\":\"note\"}],\"wrapUp\":{\"agentId\":\"00000000-0000-4000-8000-000000000000\",\"dispositionCode\":\"dispositionCode\",\"dispositionLabel\":\"dispositionLabel\",\"note\":\"note\",\"createdAt\":\"2024-01-01T00:00:00Z\",\"isConfirmed\":false,\"draftDispositionCode\":\"draftDispositionCode\",\"draftNote\":\"draftNote\",\"draftGeneratedAt\":\"2024-01-01T00:00:00Z\"},\"campaignId\":\"00000000-0000-4000-8000-000000000000\"}],\"total\":100}",
+        "value": {
+          "items": [
+            {
+              "callId": "00000000-0000-4000-8000-000000000000",
+              "startedAt": "2024-01-01T00:00:00Z",
+              "answeredAt": "2024-01-01T00:00:00Z",
+              "endedAt": "2024-01-01T00:00:00Z",
+              "callType": "INBOUND",
+              "language": "language",
+              "fromNumber": "fromNumber",
+              "toNumber": "toNumber",
+              "did": "d-1",
+              "flowId": "00000000-0000-4000-8000-000000000000",
+              "queueId": "00000000-0000-4000-8000-000000000000",
+              "agentIds": ["00000000-0000-4000-8000-000000000000"],
+              "primaryAgentId": "00000000-0000-4000-8000-000000000000",
+              "ringSec": 1,
+              "botSec": 1,
+              "queueWaitSec": 1,
+              "talkSec": 1,
+              "billSec": 1,
+              "totalSec": 100,
+              "status": "ANSWERED",
+              "hangupCause": "hangupCause",
+              "missedReason": "SHORT_ABANDONED",
+              "disposition": "disposition",
+              "isContained": false,
+              "hasRecording": false,
+              "unbackedClaims": ["TRANSFER"],
+              "userData": {},
+              "tech": {},
+              "legs": [
+                {
+                  "kind": "TRUNK",
+                  "label": "label",
+                  "durationSec": 1,
+                  "note": "note"
+                }
+              ],
+              "wrapUp": {
+                "agentId": "00000000-0000-4000-8000-000000000000",
+                "dispositionCode": "dispositionCode",
+                "dispositionLabel": "dispositionLabel",
+                "note": "note",
+                "createdAt": "2024-01-01T00:00:00Z",
+                "isConfirmed": false,
+                "draftDispositionCode": "draftDispositionCode",
+                "draftNote": "draftNote",
+                "draftGeneratedAt": "2024-01-01T00:00:00Z"
+              },
+              "campaignId": "00000000-0000-4000-8000-000000000000"
+            }
+          ],
+          "total": 100
+        }
+      }
+    },
+    {
+      "id": "behavior-44",
+      "operationId": "getCDR",
+      "kinds": ["auth-application", "error-response", "json-response", "path-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/cdrs/{callId}",
+        "pathParameters": {
+          "callId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["history:read:all"]
+          },
+          {
+            "apiKeyBearer": ["history:read:all"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/cdrs/00000000-0000-4000-8000-000000000000",
+        "query": "",
+        "url": "https://behavior.test/cdrs/00000000-0000-4000-8000-000000000000",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"cdr\":{\"callId\":\"00000000-0000-4000-8000-000000000000\",\"startedAt\":\"2024-01-01T00:00:00Z\",\"answeredAt\":\"2024-01-01T00:00:00Z\",\"endedAt\":\"2024-01-01T00:00:00Z\",\"callType\":\"INBOUND\",\"language\":\"language\",\"fromNumber\":\"fromNumber\",\"toNumber\":\"toNumber\",\"did\":\"d-1\",\"flowId\":\"00000000-0000-4000-8000-000000000000\",\"queueId\":\"00000000-0000-4000-8000-000000000000\",\"agentIds\":[\"00000000-0000-4000-8000-000000000000\"],\"primaryAgentId\":\"00000000-0000-4000-8000-000000000000\",\"ringSec\":1,\"botSec\":1,\"queueWaitSec\":1,\"talkSec\":1,\"billSec\":1,\"totalSec\":100,\"status\":\"ANSWERED\",\"hangupCause\":\"hangupCause\",\"missedReason\":\"SHORT_ABANDONED\",\"disposition\":\"disposition\",\"isContained\":false,\"hasRecording\":false,\"unbackedClaims\":[\"TRANSFER\"],\"userData\":{},\"tech\":{},\"legs\":[{\"kind\":\"TRUNK\",\"label\":\"label\",\"durationSec\":1,\"note\":\"note\"}],\"wrapUp\":{\"agentId\":\"00000000-0000-4000-8000-000000000000\",\"dispositionCode\":\"dispositionCode\",\"dispositionLabel\":\"dispositionLabel\",\"note\":\"note\",\"createdAt\":\"2024-01-01T00:00:00Z\",\"isConfirmed\":false,\"draftDispositionCode\":\"draftDispositionCode\",\"draftNote\":\"draftNote\",\"draftGeneratedAt\":\"2024-01-01T00:00:00Z\"},\"campaignId\":\"00000000-0000-4000-8000-000000000000\"},\"transcript\":[{\"seq\":1,\"occurredAt\":\"2024-01-01T00:00:00Z\",\"speaker\":\"CUSTOMER\",\"kind\":\"TEXT\",\"content\":{},\"partyId\":\"00000000-0000-4000-8000-000000000000\",\"agentId\":\"00000000-0000-4000-8000-000000000000\",\"offsetMs\":1,\"language\":\"language\",\"source\":\"MODEL\",\"provider\":\"provider\",\"utteranceId\":\"utterance-1\"}],\"recordings\":[{\"id\":\"00000000-0000-4000-8000-000000000000\",\"callId\":\"00000000-0000-4000-8000-000000000000\",\"backend\":\"backend\",\"bucket\":\"bucket\",\"objectKey\":\"objectKey\",\"sizeBytes\":1,\"durationSec\":1,\"format\":\"2024-01-01T00:00:00Z\",\"createdAt\":\"2024-01-01T00:00:00Z\"}]}",
+        "value": {
+          "cdr": {
+            "callId": "00000000-0000-4000-8000-000000000000",
+            "startedAt": "2024-01-01T00:00:00Z",
+            "answeredAt": "2024-01-01T00:00:00Z",
+            "endedAt": "2024-01-01T00:00:00Z",
+            "callType": "INBOUND",
+            "language": "language",
+            "fromNumber": "fromNumber",
+            "toNumber": "toNumber",
+            "did": "d-1",
+            "flowId": "00000000-0000-4000-8000-000000000000",
+            "queueId": "00000000-0000-4000-8000-000000000000",
+            "agentIds": ["00000000-0000-4000-8000-000000000000"],
+            "primaryAgentId": "00000000-0000-4000-8000-000000000000",
+            "ringSec": 1,
+            "botSec": 1,
+            "queueWaitSec": 1,
+            "talkSec": 1,
+            "billSec": 1,
+            "totalSec": 100,
+            "status": "ANSWERED",
+            "hangupCause": "hangupCause",
+            "missedReason": "SHORT_ABANDONED",
+            "disposition": "disposition",
+            "isContained": false,
+            "hasRecording": false,
+            "unbackedClaims": ["TRANSFER"],
+            "userData": {},
+            "tech": {},
+            "legs": [
+              {
+                "kind": "TRUNK",
+                "label": "label",
+                "durationSec": 1,
+                "note": "note"
+              }
+            ],
+            "wrapUp": {
+              "agentId": "00000000-0000-4000-8000-000000000000",
+              "dispositionCode": "dispositionCode",
+              "dispositionLabel": "dispositionLabel",
+              "note": "note",
+              "createdAt": "2024-01-01T00:00:00Z",
+              "isConfirmed": false,
+              "draftDispositionCode": "draftDispositionCode",
+              "draftNote": "draftNote",
+              "draftGeneratedAt": "2024-01-01T00:00:00Z"
+            },
+            "campaignId": "00000000-0000-4000-8000-000000000000"
+          },
+          "transcript": [
+            {
+              "seq": 1,
+              "occurredAt": "2024-01-01T00:00:00Z",
+              "speaker": "CUSTOMER",
+              "kind": "TEXT",
+              "content": {},
+              "partyId": "00000000-0000-4000-8000-000000000000",
+              "agentId": "00000000-0000-4000-8000-000000000000",
+              "offsetMs": 1,
+              "language": "language",
+              "source": "MODEL",
+              "provider": "provider",
+              "utteranceId": "utterance-1"
+            }
+          ],
+          "recordings": [
+            {
+              "id": "00000000-0000-4000-8000-000000000000",
+              "callId": "00000000-0000-4000-8000-000000000000",
+              "backend": "backend",
+              "bucket": "bucket",
+              "objectKey": "objectKey",
+              "sizeBytes": 1,
+              "durationSec": 1,
+              "format": "2024-01-01T00:00:00Z",
+              "createdAt": "2024-01-01T00:00:00Z"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "behavior-45",
+      "operationId": "getRecordingAudio",
+      "kinds": ["auth-application", "binary-response", "error-response", "path-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/recordings/{recordingId}/audio",
+        "pathParameters": {
+          "recordingId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["history:read:own"]
+          },
+          {
+            "apiKeyBearer": ["history:read:own"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/recordings/00000000-0000-4000-8000-000000000000/audio",
+        "query": "",
+        "url": "https://behavior.test/recordings/00000000-0000-4000-8000-000000000000/audio",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "bytes",
+        "status": 200,
+        "mediaType": "audio/wav",
+        "body": "ZXhhbXBsZQ==",
+        "value": 12
+      }
+    },
+    {
+      "id": "behavior-46",
+      "operationId": "createRecordingReview",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/recordings/{recordingId}/reviews",
+        "pathParameters": {
+          "recordingId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "scores": {
+            "key": 1
+          },
+          "totalScore": 0,
+          "notes": "notes"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["quality:review"],
+            "csrfHeader": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/recordings/00000000-0000-4000-8000-000000000000/reviews",
+        "query": "",
+        "url": "https://behavior.test/recordings/00000000-0000-4000-8000-000000000000/reviews",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"scores\":{\"key\":1},\"totalScore\":0,\"notes\":\"notes\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"id\":\"00000000-0000-4000-8000-000000000000\",\"recordingId\":\"00000000-0000-4000-8000-000000000000\",\"callId\":\"00000000-0000-4000-8000-000000000000\",\"reviewerId\":\"00000000-0000-4000-8000-000000000000\",\"scores\":{\"key\":1},\"totalScore\":0,\"notes\":\"notes\",\"createdAt\":\"2024-01-01T00:00:00Z\"}",
+        "value": {
+          "id": "00000000-0000-4000-8000-000000000000",
+          "recordingId": "00000000-0000-4000-8000-000000000000",
+          "callId": "00000000-0000-4000-8000-000000000000",
+          "reviewerId": "00000000-0000-4000-8000-000000000000",
+          "scores": {
+            "key": 1
+          },
+          "totalScore": 0,
+          "notes": "notes",
+          "createdAt": "2024-01-01T00:00:00Z"
+        }
+      }
+    },
+    {
+      "id": "behavior-47",
+      "operationId": "getReportOverview",
+      "kinds": ["auth-application", "error-response", "json-response", "query-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/reports/overview",
+        "pathParameters": {},
+        "query": [
+          {
+            "name": "from",
+            "style": "form",
+            "explode": true,
+            "value": "2024-01-01T00:00:00Z",
+            "serialized": "2024-01-01T00:00:00Z"
+          },
+          {
+            "name": "to",
+            "style": "form",
+            "explode": true,
+            "value": "2024-01-01T00:00:00Z",
+            "serialized": "2024-01-01T00:00:00Z"
+          },
+          {
+            "name": "queueId",
+            "style": "form",
+            "explode": true,
+            "value": "00000000-0000-4000-8000-000000000000",
+            "serialized": "00000000-0000-4000-8000-000000000000"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["reports:read"]
+          },
+          {
+            "apiKeyBearer": ["reports:read"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/reports/overview",
+        "query": "from=2024-01-01T00%3A00%3A00Z&to=2024-01-01T00%3A00%3A00Z&queueId=00000000-0000-4000-8000-000000000000",
+        "url": "https://behavior.test/reports/overview?from=2024-01-01T00%3A00%3A00Z&to=2024-01-01T00%3A00%3A00Z&queueId=00000000-0000-4000-8000-000000000000",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"totalCalls\":100,\"answeredCalls\":1,\"abandonedCalls\":1,\"containedCalls\":1,\"queueCalls\":1,\"answeredWithinSla\":1,\"avgWaitSec\":1,\"avgTalkSec\":1,\"avgBotSec\":1}",
+        "value": {
+          "totalCalls": 100,
+          "answeredCalls": 1,
+          "abandonedCalls": 1,
+          "containedCalls": 1,
+          "queueCalls": 1,
+          "answeredWithinSla": 1,
+          "avgWaitSec": 1,
+          "avgTalkSec": 1,
+          "avgBotSec": 1
+        }
+      }
+    },
+    {
+      "id": "behavior-48",
+      "operationId": "getReportQueues",
+      "kinds": ["auth-application", "error-response", "json-response", "query-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/reports/queues",
+        "pathParameters": {},
+        "query": [
+          {
+            "name": "from",
+            "style": "form",
+            "explode": true,
+            "value": "2024-01-01T00:00:00Z",
+            "serialized": "2024-01-01T00:00:00Z"
+          },
+          {
+            "name": "to",
+            "style": "form",
+            "explode": true,
+            "value": "2024-01-01T00:00:00Z",
+            "serialized": "2024-01-01T00:00:00Z"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["reports:read"]
+          },
+          {
+            "apiKeyBearer": ["reports:read"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/reports/queues",
+        "query": "from=2024-01-01T00%3A00%3A00Z&to=2024-01-01T00%3A00%3A00Z",
+        "url": "https://behavior.test/reports/queues?from=2024-01-01T00%3A00%3A00Z&to=2024-01-01T00%3A00%3A00Z",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"items\":[{\"queueId\":\"00000000-0000-4000-8000-000000000000\",\"totalCalls\":100,\"answeredCalls\":1,\"abandonedCalls\":1,\"answeredWithinSla\":1,\"avgWaitSec\":1,\"maxWaitSec\":1,\"avgTalkSec\":1}]}",
+        "value": {
+          "items": [
+            {
+              "queueId": "00000000-0000-4000-8000-000000000000",
+              "totalCalls": 100,
+              "answeredCalls": 1,
+              "abandonedCalls": 1,
+              "answeredWithinSla": 1,
+              "avgWaitSec": 1,
+              "maxWaitSec": 1,
+              "avgTalkSec": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "behavior-49",
+      "operationId": "getMyDay",
+      "kinds": ["auth-application", "error-response", "json-response", "query-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/reports/me",
+        "pathParameters": {},
+        "query": [
+          {
+            "name": "from",
+            "style": "form",
+            "explode": true,
+            "value": "2024-01-01T00:00:00Z",
+            "serialized": "2024-01-01T00:00:00Z"
+          },
+          {
+            "name": "to",
+            "style": "form",
+            "explode": true,
+            "value": "2024-01-01T00:00:00Z",
+            "serialized": "2024-01-01T00:00:00Z"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["history:read:own"]
+          },
+          {
+            "apiKeyBearer": ["history:read:own"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/reports/me",
+        "query": "from=2024-01-01T00%3A00%3A00Z&to=2024-01-01T00%3A00%3A00Z",
+        "url": "https://behavior.test/reports/me?from=2024-01-01T00%3A00%3A00Z&to=2024-01-01T00%3A00%3A00Z",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"callsHandled\":1,\"talkSec\":1,\"wrapUpSec\":1,\"signedInSec\":1,\"avgHandleSec\":1,\"avgWrapUpSec\":1,\"occupancyPct\":1,\"wrapUpsOpened\":1,\"wrapUpsConfirmed\":1,\"confirmedPct\":1}",
+        "value": {
+          "callsHandled": 1,
+          "talkSec": 1,
+          "wrapUpSec": 1,
+          "signedInSec": 1,
+          "avgHandleSec": 1,
+          "avgWrapUpSec": 1,
+          "occupancyPct": 1,
+          "wrapUpsOpened": 1,
+          "wrapUpsConfirmed": 1,
+          "confirmedPct": 1
+        }
+      }
+    },
+    {
+      "id": "behavior-50",
+      "operationId": "listCallbacks",
+      "kinds": ["auth-application", "error-response", "json-response", "query-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/callbacks",
+        "pathParameters": {},
+        "query": [
+          {
+            "name": "status",
+            "style": "form",
+            "explode": true,
+            "value": "OPEN",
+            "serialized": "OPEN"
+          },
+          {
+            "name": "callId",
+            "style": "form",
+            "explode": true,
+            "value": "00000000-0000-4000-8000-000000000000",
+            "serialized": "00000000-0000-4000-8000-000000000000"
+          },
+          {
+            "name": "limit",
+            "style": "form",
+            "explode": true,
+            "value": 50,
+            "serialized": "50"
+          },
+          {
+            "name": "offset",
+            "style": "form",
+            "explode": true,
+            "value": 0,
+            "serialized": "0"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["calls:read:own"]
+          },
+          {
+            "apiKeyBearer": ["calls:read:own"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/callbacks",
+        "query": "status=OPEN&callId=00000000-0000-4000-8000-000000000000&limit=50&offset=0",
+        "url": "https://behavior.test/callbacks?status=OPEN&callId=00000000-0000-4000-8000-000000000000&limit=50&offset=0",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"items\":[{\"id\":\"00000000-0000-4000-8000-000000000000\",\"callId\":\"00000000-0000-4000-8000-000000000000\",\"queueId\":\"00000000-0000-4000-8000-000000000000\",\"phoneNumber\":\"+15555550100\",\"message\":\"example text\",\"status\":\"OPEN\",\"createdAt\":\"2024-01-01T00:00:00Z\",\"handledBy\":\"00000000-0000-4000-8000-000000000000\",\"handledAt\":\"2024-01-01T00:00:00Z\",\"lastAttemptCallId\":\"00000000-0000-4000-8000-000000000000\",\"lastAttemptAt\":\"2024-01-01T00:00:00Z\",\"lastAttemptStatus\":\"ANSWERED\"}]}",
+        "value": {
+          "items": [
+            {
+              "id": "00000000-0000-4000-8000-000000000000",
+              "callId": "00000000-0000-4000-8000-000000000000",
+              "queueId": "00000000-0000-4000-8000-000000000000",
+              "phoneNumber": "+15555550100",
+              "message": "example text",
+              "status": "OPEN",
+              "createdAt": "2024-01-01T00:00:00Z",
+              "handledBy": "00000000-0000-4000-8000-000000000000",
+              "handledAt": "2024-01-01T00:00:00Z",
+              "lastAttemptCallId": "00000000-0000-4000-8000-000000000000",
+              "lastAttemptAt": "2024-01-01T00:00:00Z",
+              "lastAttemptStatus": "ANSWERED"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "behavior-51",
+      "operationId": "claimCallback",
+      "kinds": ["auth-application", "error-response", "json-response", "path-serialization"],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/callbacks/{callbackId}/claim",
+        "pathParameters": {
+          "callbackId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["calls:control"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["calls:control"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/callbacks/00000000-0000-4000-8000-000000000000/claim",
+        "query": "",
+        "url": "https://behavior.test/callbacks/00000000-0000-4000-8000-000000000000/claim",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"id\":\"00000000-0000-4000-8000-000000000000\",\"callId\":\"00000000-0000-4000-8000-000000000000\",\"queueId\":\"00000000-0000-4000-8000-000000000000\",\"phoneNumber\":\"+15555550100\",\"message\":\"example text\",\"status\":\"OPEN\",\"createdAt\":\"2024-01-01T00:00:00Z\",\"handledBy\":\"00000000-0000-4000-8000-000000000000\",\"handledAt\":\"2024-01-01T00:00:00Z\",\"lastAttemptCallId\":\"00000000-0000-4000-8000-000000000000\",\"lastAttemptAt\":\"2024-01-01T00:00:00Z\",\"lastAttemptStatus\":\"ANSWERED\"}",
+        "value": {
+          "id": "00000000-0000-4000-8000-000000000000",
+          "callId": "00000000-0000-4000-8000-000000000000",
+          "queueId": "00000000-0000-4000-8000-000000000000",
+          "phoneNumber": "+15555550100",
+          "message": "example text",
+          "status": "OPEN",
+          "createdAt": "2024-01-01T00:00:00Z",
+          "handledBy": "00000000-0000-4000-8000-000000000000",
+          "handledAt": "2024-01-01T00:00:00Z",
+          "lastAttemptCallId": "00000000-0000-4000-8000-000000000000",
+          "lastAttemptAt": "2024-01-01T00:00:00Z",
+          "lastAttemptStatus": "ANSWERED"
+        }
+      }
+    },
+    {
+      "id": "behavior-52",
+      "operationId": "completeCallback",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/callbacks/{callbackId}/complete",
+        "pathParameters": {
+          "callbackId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "status": "DONE"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["calls:control"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["calls:control"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/callbacks/00000000-0000-4000-8000-000000000000/complete",
+        "query": "",
+        "url": "https://behavior.test/callbacks/00000000-0000-4000-8000-000000000000/complete",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"status\":\"DONE\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"id\":\"00000000-0000-4000-8000-000000000000\",\"callId\":\"00000000-0000-4000-8000-000000000000\",\"queueId\":\"00000000-0000-4000-8000-000000000000\",\"phoneNumber\":\"+15555550100\",\"message\":\"example text\",\"status\":\"OPEN\",\"createdAt\":\"2024-01-01T00:00:00Z\",\"handledBy\":\"00000000-0000-4000-8000-000000000000\",\"handledAt\":\"2024-01-01T00:00:00Z\",\"lastAttemptCallId\":\"00000000-0000-4000-8000-000000000000\",\"lastAttemptAt\":\"2024-01-01T00:00:00Z\",\"lastAttemptStatus\":\"ANSWERED\"}",
+        "value": {
+          "id": "00000000-0000-4000-8000-000000000000",
+          "callId": "00000000-0000-4000-8000-000000000000",
+          "queueId": "00000000-0000-4000-8000-000000000000",
+          "phoneNumber": "+15555550100",
+          "message": "example text",
+          "status": "OPEN",
+          "createdAt": "2024-01-01T00:00:00Z",
+          "handledBy": "00000000-0000-4000-8000-000000000000",
+          "handledAt": "2024-01-01T00:00:00Z",
+          "lastAttemptCallId": "00000000-0000-4000-8000-000000000000",
+          "lastAttemptAt": "2024-01-01T00:00:00Z",
+          "lastAttemptStatus": "ANSWERED"
+        }
+      }
+    },
+    {
+      "id": "behavior-53",
+      "operationId": "listContacts",
+      "kinds": ["auth-application", "error-response", "json-response", "query-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/contacts",
+        "pathParameters": {},
+        "query": [
+          {
+            "name": "q",
+            "style": "form",
+            "explode": true,
+            "value": "q",
+            "serialized": "q"
+          },
+          {
+            "name": "phoneNumber",
+            "style": "form",
+            "explode": true,
+            "value": "+15555550100",
+            "serialized": "+15555550100"
+          },
+          {
+            "name": "limit",
+            "style": "form",
+            "explode": true,
+            "value": 50,
+            "serialized": "50"
+          },
+          {
+            "name": "offset",
+            "style": "form",
+            "explode": true,
+            "value": 0,
+            "serialized": "0"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["contacts:read"]
+          },
+          {
+            "apiKeyBearer": ["contacts:read"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/contacts",
+        "query": "q=q&phoneNumber=%2B15555550100&limit=50&offset=0",
+        "url": "https://behavior.test/contacts?q=q&phoneNumber=%2B15555550100&limit=50&offset=0",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"items\":[{\"id\":\"00000000-0000-4000-8000-000000000000\",\"phoneNumber\":\"+15555550100\",\"name\":\"Example Name\",\"company\":\"company\",\"email\":\"user@example.com\",\"tags\":[\"tags\"],\"notes\":\"notes\",\"lastCallAt\":\"2024-01-01T00:00:00Z\",\"createdAt\":\"2024-01-01T00:00:00Z\",\"updatedAt\":\"2024-01-01T00:00:00Z\"}],\"total\":100}",
+        "value": {
+          "items": [
+            {
+              "id": "00000000-0000-4000-8000-000000000000",
+              "phoneNumber": "+15555550100",
+              "name": "Example Name",
+              "company": "company",
+              "email": "user@example.com",
+              "tags": ["tags"],
+              "notes": "notes",
+              "lastCallAt": "2024-01-01T00:00:00Z",
+              "createdAt": "2024-01-01T00:00:00Z",
+              "updatedAt": "2024-01-01T00:00:00Z"
+            }
+          ],
+          "total": 100
+        }
+      }
+    },
+    {
+      "id": "behavior-54",
+      "operationId": "createContact",
+      "kinds": ["auth-application", "error-response", "json-request", "json-response"],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/contacts",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "body": {
+          "phoneNumber": "+15555550100",
+          "name": "Example Name",
+          "company": "company",
+          "email": "user@example.com",
+          "tags": ["tags"],
+          "notes": "notes"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["contacts:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["contacts:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/contacts",
+        "query": "",
+        "url": "https://behavior.test/contacts",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"phoneNumber\":\"+15555550100\",\"name\":\"Example Name\",\"company\":\"company\",\"email\":\"user@example.com\",\"tags\":[\"tags\"],\"notes\":\"notes\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"id\":\"00000000-0000-4000-8000-000000000000\",\"phoneNumber\":\"+15555550100\",\"name\":\"Example Name\",\"company\":\"company\",\"email\":\"user@example.com\",\"tags\":[\"tags\"],\"notes\":\"notes\",\"lastCallAt\":\"2024-01-01T00:00:00Z\",\"createdAt\":\"2024-01-01T00:00:00Z\",\"updatedAt\":\"2024-01-01T00:00:00Z\"}",
+        "value": {
+          "id": "00000000-0000-4000-8000-000000000000",
+          "phoneNumber": "+15555550100",
+          "name": "Example Name",
+          "company": "company",
+          "email": "user@example.com",
+          "tags": ["tags"],
+          "notes": "notes",
+          "lastCallAt": "2024-01-01T00:00:00Z",
+          "createdAt": "2024-01-01T00:00:00Z",
+          "updatedAt": "2024-01-01T00:00:00Z"
+        }
+      }
+    },
+    {
+      "id": "behavior-55",
+      "operationId": "updateContact",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "PUT",
+        "pathTemplate": "/contacts/{contactId}",
+        "pathParameters": {
+          "contactId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "phoneNumber": "+15555550100",
+          "name": "Example Name",
+          "company": "company",
+          "email": "user@example.com",
+          "tags": ["tags"],
+          "notes": "notes"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["contacts:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["contacts:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "PUT",
+        "path": "/contacts/00000000-0000-4000-8000-000000000000",
+        "query": "",
+        "url": "https://behavior.test/contacts/00000000-0000-4000-8000-000000000000",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"phoneNumber\":\"+15555550100\",\"name\":\"Example Name\",\"company\":\"company\",\"email\":\"user@example.com\",\"tags\":[\"tags\"],\"notes\":\"notes\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"id\":\"00000000-0000-4000-8000-000000000000\",\"phoneNumber\":\"+15555550100\",\"name\":\"Example Name\",\"company\":\"company\",\"email\":\"user@example.com\",\"tags\":[\"tags\"],\"notes\":\"notes\",\"lastCallAt\":\"2024-01-01T00:00:00Z\",\"createdAt\":\"2024-01-01T00:00:00Z\",\"updatedAt\":\"2024-01-01T00:00:00Z\"}",
+        "value": {
+          "id": "00000000-0000-4000-8000-000000000000",
+          "phoneNumber": "+15555550100",
+          "name": "Example Name",
+          "company": "company",
+          "email": "user@example.com",
+          "tags": ["tags"],
+          "notes": "notes",
+          "lastCallAt": "2024-01-01T00:00:00Z",
+          "createdAt": "2024-01-01T00:00:00Z",
+          "updatedAt": "2024-01-01T00:00:00Z"
+        }
+      }
+    },
+    {
+      "id": "behavior-56",
+      "operationId": "deleteContact",
+      "kinds": ["auth-application", "empty-response", "error-response", "path-serialization"],
+      "request": {
+        "method": "DELETE",
+        "pathTemplate": "/contacts/{contactId}",
+        "pathParameters": {
+          "contactId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["contacts:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["contacts:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "DELETE",
+        "path": "/contacts/00000000-0000-4000-8000-000000000000",
+        "query": "",
+        "url": "https://behavior.test/contacts/00000000-0000-4000-8000-000000000000",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "empty",
+        "status": 204,
+        "mediaType": null,
+        "body": "",
+        "value": null
+      }
+    },
+    {
+      "id": "behavior-57",
+      "operationId": "listDncNumbers",
+      "kinds": ["auth-application", "error-response", "json-response", "query-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/dnc-numbers",
+        "pathParameters": {},
+        "query": [
+          {
+            "name": "prefix",
+            "style": "form",
+            "explode": true,
+            "value": "prefix",
+            "serialized": "prefix"
+          },
+          {
+            "name": "limit",
+            "style": "form",
+            "explode": true,
+            "value": 50,
+            "serialized": "50"
+          },
+          {
+            "name": "offset",
+            "style": "form",
+            "explode": true,
+            "value": 0,
+            "serialized": "0"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["dnc:read"]
+          },
+          {
+            "apiKeyBearer": ["dnc:read"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/dnc-numbers",
+        "query": "prefix=prefix&limit=50&offset=0",
+        "url": "https://behavior.test/dnc-numbers?prefix=prefix&limit=50&offset=0",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"items\":[{\"number\":\"number\",\"source\":\"MANUAL\",\"callId\":\"00000000-0000-4000-8000-000000000000\",\"createdAt\":\"2024-01-01T00:00:00Z\",\"createdBy\":\"00000000-0000-4000-8000-000000000000\"}],\"total\":100}",
+        "value": {
+          "items": [
+            {
+              "number": "number",
+              "source": "MANUAL",
+              "callId": "00000000-0000-4000-8000-000000000000",
+              "createdAt": "2024-01-01T00:00:00Z",
+              "createdBy": "00000000-0000-4000-8000-000000000000"
+            }
+          ],
+          "total": 100
+        }
+      }
+    },
+    {
+      "id": "behavior-58",
+      "operationId": "createDncNumber",
+      "kinds": ["auth-application", "error-response", "json-request", "json-response"],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/dnc-numbers",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "body": {
+          "number": "number",
+          "source": "MANUAL"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["dnc:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["dnc:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/dnc-numbers",
+        "query": "",
+        "url": "https://behavior.test/dnc-numbers",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"number\":\"number\",\"source\":\"MANUAL\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"number\":\"number\",\"source\":\"MANUAL\",\"callId\":\"00000000-0000-4000-8000-000000000000\",\"createdAt\":\"2024-01-01T00:00:00Z\",\"createdBy\":\"00000000-0000-4000-8000-000000000000\"}",
+        "value": {
+          "number": "number",
+          "source": "MANUAL",
+          "callId": "00000000-0000-4000-8000-000000000000",
+          "createdAt": "2024-01-01T00:00:00Z",
+          "createdBy": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    },
+    {
+      "id": "behavior-59",
+      "operationId": "deleteDncNumber",
+      "kinds": ["auth-application", "empty-response", "error-response", "path-serialization"],
+      "request": {
+        "method": "DELETE",
+        "pathTemplate": "/dnc-numbers/{number}",
+        "pathParameters": {
+          "number": "number"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["dnc:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["dnc:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "DELETE",
+        "path": "/dnc-numbers/number",
+        "query": "",
+        "url": "https://behavior.test/dnc-numbers/number",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "empty",
+        "status": 204,
+        "mediaType": null,
+        "body": "",
+        "value": null
+      }
+    },
+    {
+      "id": "behavior-60",
+      "operationId": "listCampaigns",
+      "kinds": ["auth-application", "error-response", "json-response", "query-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/campaigns",
+        "pathParameters": {},
+        "query": [
+          {
+            "name": "status",
+            "style": "form",
+            "explode": true,
+            "value": "DRAFT",
+            "serialized": "DRAFT"
+          },
+          {
+            "name": "limit",
+            "style": "form",
+            "explode": true,
+            "value": 50,
+            "serialized": "50"
+          },
+          {
+            "name": "offset",
+            "style": "form",
+            "explode": true,
+            "value": 0,
+            "serialized": "0"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["campaigns:read"]
+          },
+          {
+            "apiKeyBearer": ["campaigns:read"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/campaigns",
+        "query": "status=DRAFT&limit=50&offset=0",
+        "url": "https://behavior.test/campaigns?status=DRAFT&limit=50&offset=0",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"items\":[{\"id\":\"00000000-0000-4000-8000-000000000000\",\"name\":\"Example Name\",\"didId\":\"00000000-0000-4000-8000-000000000000\",\"didNumber\":\"didNumber\",\"status\":\"DRAFT\",\"pauseReason\":\"MANUAL\",\"timeZone\":\"2024-01-01T00:00:00Z\",\"callingWindow\":{\"days\":[\"MON\"],\"ranges\":[{\"start\":\"09:00\",\"end\":\"17:30\"}]},\"defaultCountryCode\":\"defaultCountryCode\",\"maxConcurrent\":1,\"ringTimeoutSec\":1,\"retryPolicy\":{\"maxAttempts\":3,\"maxSystemRetries\":5,\"retryOutcomes\":[\"NO_ANSWER\"],\"intervalSec\":{\"key\":60},\"transientBackoff\":{\"baseSec\":300,\"factor\":3,\"capSec\":14400}},\"followUpQueueId\":\"00000000-0000-4000-8000-000000000000\",\"createdAt\":\"2024-01-01T00:00:00Z\",\"startedAt\":\"2024-01-01T00:00:00Z\",\"finishedAt\":\"2024-01-01T00:00:00Z\",\"contacts\":{\"total\":100,\"active\":1,\"done\":1,\"exhausted\":1,\"invalidNumber\":1,\"dnc\":1},\"activity\":\"DIALING\",\"nextDialAt\":\"2024-01-01T00:00:00Z\",\"inFlight\":0,\"flowFields\":[\"flowFields\"]}],\"total\":100}",
+        "value": {
+          "items": [
+            {
+              "id": "00000000-0000-4000-8000-000000000000",
+              "name": "Example Name",
+              "didId": "00000000-0000-4000-8000-000000000000",
+              "didNumber": "didNumber",
+              "status": "DRAFT",
+              "pauseReason": "MANUAL",
+              "timeZone": "2024-01-01T00:00:00Z",
+              "callingWindow": {
+                "days": ["MON"],
+                "ranges": [
+                  {
+                    "start": "09:00",
+                    "end": "17:30"
+                  }
+                ]
+              },
+              "defaultCountryCode": "defaultCountryCode",
+              "maxConcurrent": 1,
+              "ringTimeoutSec": 1,
+              "retryPolicy": {
+                "maxAttempts": 3,
+                "maxSystemRetries": 5,
+                "retryOutcomes": ["NO_ANSWER"],
+                "intervalSec": {
+                  "key": 60
+                },
+                "transientBackoff": {
+                  "baseSec": 300,
+                  "factor": 3,
+                  "capSec": 14400
+                }
+              },
+              "followUpQueueId": "00000000-0000-4000-8000-000000000000",
+              "createdAt": "2024-01-01T00:00:00Z",
+              "startedAt": "2024-01-01T00:00:00Z",
+              "finishedAt": "2024-01-01T00:00:00Z",
+              "contacts": {
+                "total": 100,
+                "active": 1,
+                "done": 1,
+                "exhausted": 1,
+                "invalidNumber": 1,
+                "dnc": 1
+              },
+              "activity": "DIALING",
+              "nextDialAt": "2024-01-01T00:00:00Z",
+              "inFlight": 0,
+              "flowFields": ["flowFields"]
+            }
+          ],
+          "total": 100
+        }
+      }
+    },
+    {
+      "id": "behavior-61",
+      "operationId": "createCampaign",
+      "kinds": ["auth-application", "error-response", "json-request", "json-response"],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/campaigns",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "body": {
+          "name": "Example Name",
+          "didId": "00000000-0000-4000-8000-000000000000",
+          "timeZone": "2024-01-01T00:00:00Z",
+          "callingWindow": {
+            "days": ["MON"],
+            "ranges": [
+              {
+                "start": "09:00",
+                "end": "17:30"
+              }
+            ]
+          },
+          "maxConcurrent": 5,
+          "ringTimeoutSec": 30,
+          "retryPolicy": {
+            "maxAttempts": 3,
+            "maxSystemRetries": 5,
+            "retryOutcomes": ["NO_ANSWER"],
+            "intervalSec": {
+              "key": 60
+            },
+            "transientBackoff": {
+              "baseSec": 300,
+              "factor": 3,
+              "capSec": 14400
+            }
+          },
+          "defaultCountryCode": "1",
+          "followUpQueueId": "00000000-0000-4000-8000-000000000000"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["campaigns:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["campaigns:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/campaigns",
+        "query": "",
+        "url": "https://behavior.test/campaigns",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"name\":\"Example Name\",\"didId\":\"00000000-0000-4000-8000-000000000000\",\"timeZone\":\"2024-01-01T00:00:00Z\",\"callingWindow\":{\"days\":[\"MON\"],\"ranges\":[{\"start\":\"09:00\",\"end\":\"17:30\"}]},\"maxConcurrent\":5,\"ringTimeoutSec\":30,\"retryPolicy\":{\"maxAttempts\":3,\"maxSystemRetries\":5,\"retryOutcomes\":[\"NO_ANSWER\"],\"intervalSec\":{\"key\":60},\"transientBackoff\":{\"baseSec\":300,\"factor\":3,\"capSec\":14400}},\"defaultCountryCode\":\"1\",\"followUpQueueId\":\"00000000-0000-4000-8000-000000000000\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"id\":\"00000000-0000-4000-8000-000000000000\",\"name\":\"Example Name\",\"didId\":\"00000000-0000-4000-8000-000000000000\",\"didNumber\":\"didNumber\",\"status\":\"DRAFT\",\"pauseReason\":\"MANUAL\",\"timeZone\":\"2024-01-01T00:00:00Z\",\"callingWindow\":{\"days\":[\"MON\"],\"ranges\":[{\"start\":\"09:00\",\"end\":\"17:30\"}]},\"defaultCountryCode\":\"defaultCountryCode\",\"maxConcurrent\":1,\"ringTimeoutSec\":1,\"retryPolicy\":{\"maxAttempts\":3,\"maxSystemRetries\":5,\"retryOutcomes\":[\"NO_ANSWER\"],\"intervalSec\":{\"key\":60},\"transientBackoff\":{\"baseSec\":300,\"factor\":3,\"capSec\":14400}},\"followUpQueueId\":\"00000000-0000-4000-8000-000000000000\",\"createdAt\":\"2024-01-01T00:00:00Z\",\"startedAt\":\"2024-01-01T00:00:00Z\",\"finishedAt\":\"2024-01-01T00:00:00Z\",\"contacts\":{\"total\":100,\"active\":1,\"done\":1,\"exhausted\":1,\"invalidNumber\":1,\"dnc\":1},\"activity\":\"DIALING\",\"nextDialAt\":\"2024-01-01T00:00:00Z\",\"inFlight\":0,\"flowFields\":[\"flowFields\"]}",
+        "value": {
+          "id": "00000000-0000-4000-8000-000000000000",
+          "name": "Example Name",
+          "didId": "00000000-0000-4000-8000-000000000000",
+          "didNumber": "didNumber",
+          "status": "DRAFT",
+          "pauseReason": "MANUAL",
+          "timeZone": "2024-01-01T00:00:00Z",
+          "callingWindow": {
+            "days": ["MON"],
+            "ranges": [
+              {
+                "start": "09:00",
+                "end": "17:30"
+              }
+            ]
+          },
+          "defaultCountryCode": "defaultCountryCode",
+          "maxConcurrent": 1,
+          "ringTimeoutSec": 1,
+          "retryPolicy": {
+            "maxAttempts": 3,
+            "maxSystemRetries": 5,
+            "retryOutcomes": ["NO_ANSWER"],
+            "intervalSec": {
+              "key": 60
+            },
+            "transientBackoff": {
+              "baseSec": 300,
+              "factor": 3,
+              "capSec": 14400
+            }
+          },
+          "followUpQueueId": "00000000-0000-4000-8000-000000000000",
+          "createdAt": "2024-01-01T00:00:00Z",
+          "startedAt": "2024-01-01T00:00:00Z",
+          "finishedAt": "2024-01-01T00:00:00Z",
+          "contacts": {
+            "total": 100,
+            "active": 1,
+            "done": 1,
+            "exhausted": 1,
+            "invalidNumber": 1,
+            "dnc": 1
+          },
+          "activity": "DIALING",
+          "nextDialAt": "2024-01-01T00:00:00Z",
+          "inFlight": 0,
+          "flowFields": ["flowFields"]
+        }
+      }
+    },
+    {
+      "id": "behavior-62",
+      "operationId": "getCampaignSettings",
+      "kinds": ["auth-application", "error-response", "json-response"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/campaigns/settings",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["campaigns:read"]
+          },
+          {
+            "apiKeyBearer": ["campaigns:read"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/campaigns/settings",
+        "query": "",
+        "url": "https://behavior.test/campaigns/settings",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"outboundHours\":{\"start\":\"09:00\",\"end\":\"17:30\"},\"defaults\":{\"maxConcurrent\":1,\"ringTimeoutSec\":1,\"retryPolicy\":{\"maxAttempts\":3,\"maxSystemRetries\":5,\"retryOutcomes\":[\"NO_ANSWER\"],\"intervalSec\":{\"key\":60},\"transientBackoff\":{\"baseSec\":300,\"factor\":3,\"capSec\":14400}}},\"limits\":{\"maxConcurrent\":{\"min\":1,\"max\":1},\"ringTimeoutSec\":{\"min\":1,\"max\":1}}}",
+        "value": {
+          "outboundHours": {
+            "start": "09:00",
+            "end": "17:30"
+          },
+          "defaults": {
+            "maxConcurrent": 1,
+            "ringTimeoutSec": 1,
+            "retryPolicy": {
+              "maxAttempts": 3,
+              "maxSystemRetries": 5,
+              "retryOutcomes": ["NO_ANSWER"],
+              "intervalSec": {
+                "key": 60
+              },
+              "transientBackoff": {
+                "baseSec": 300,
+                "factor": 3,
+                "capSec": 14400
+              }
+            }
+          },
+          "limits": {
+            "maxConcurrent": {
+              "min": 1,
+              "max": 1
+            },
+            "ringTimeoutSec": {
+              "min": 1,
+              "max": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-63",
+      "operationId": "getCampaign",
+      "kinds": ["auth-application", "error-response", "json-response", "path-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/campaigns/{campaignId}",
+        "pathParameters": {
+          "campaignId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["campaigns:read"]
+          },
+          {
+            "apiKeyBearer": ["campaigns:read"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/campaigns/00000000-0000-4000-8000-000000000000",
+        "query": "",
+        "url": "https://behavior.test/campaigns/00000000-0000-4000-8000-000000000000",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"id\":\"00000000-0000-4000-8000-000000000000\",\"name\":\"Example Name\",\"didId\":\"00000000-0000-4000-8000-000000000000\",\"didNumber\":\"didNumber\",\"status\":\"DRAFT\",\"pauseReason\":\"MANUAL\",\"timeZone\":\"2024-01-01T00:00:00Z\",\"callingWindow\":{\"days\":[\"MON\"],\"ranges\":[{\"start\":\"09:00\",\"end\":\"17:30\"}]},\"defaultCountryCode\":\"defaultCountryCode\",\"maxConcurrent\":1,\"ringTimeoutSec\":1,\"retryPolicy\":{\"maxAttempts\":3,\"maxSystemRetries\":5,\"retryOutcomes\":[\"NO_ANSWER\"],\"intervalSec\":{\"key\":60},\"transientBackoff\":{\"baseSec\":300,\"factor\":3,\"capSec\":14400}},\"followUpQueueId\":\"00000000-0000-4000-8000-000000000000\",\"createdAt\":\"2024-01-01T00:00:00Z\",\"startedAt\":\"2024-01-01T00:00:00Z\",\"finishedAt\":\"2024-01-01T00:00:00Z\",\"contacts\":{\"total\":100,\"active\":1,\"done\":1,\"exhausted\":1,\"invalidNumber\":1,\"dnc\":1},\"activity\":\"DIALING\",\"nextDialAt\":\"2024-01-01T00:00:00Z\",\"inFlight\":0,\"flowFields\":[\"flowFields\"]}",
+        "value": {
+          "id": "00000000-0000-4000-8000-000000000000",
+          "name": "Example Name",
+          "didId": "00000000-0000-4000-8000-000000000000",
+          "didNumber": "didNumber",
+          "status": "DRAFT",
+          "pauseReason": "MANUAL",
+          "timeZone": "2024-01-01T00:00:00Z",
+          "callingWindow": {
+            "days": ["MON"],
+            "ranges": [
+              {
+                "start": "09:00",
+                "end": "17:30"
+              }
+            ]
+          },
+          "defaultCountryCode": "defaultCountryCode",
+          "maxConcurrent": 1,
+          "ringTimeoutSec": 1,
+          "retryPolicy": {
+            "maxAttempts": 3,
+            "maxSystemRetries": 5,
+            "retryOutcomes": ["NO_ANSWER"],
+            "intervalSec": {
+              "key": 60
+            },
+            "transientBackoff": {
+              "baseSec": 300,
+              "factor": 3,
+              "capSec": 14400
+            }
+          },
+          "followUpQueueId": "00000000-0000-4000-8000-000000000000",
+          "createdAt": "2024-01-01T00:00:00Z",
+          "startedAt": "2024-01-01T00:00:00Z",
+          "finishedAt": "2024-01-01T00:00:00Z",
+          "contacts": {
+            "total": 100,
+            "active": 1,
+            "done": 1,
+            "exhausted": 1,
+            "invalidNumber": 1,
+            "dnc": 1
+          },
+          "activity": "DIALING",
+          "nextDialAt": "2024-01-01T00:00:00Z",
+          "inFlight": 0,
+          "flowFields": ["flowFields"]
+        }
+      }
+    },
+    {
+      "id": "behavior-64",
+      "operationId": "updateCampaign",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "PATCH",
+        "pathTemplate": "/campaigns/{campaignId}",
+        "pathParameters": {
+          "campaignId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "name": "Example Name",
+          "didId": "00000000-0000-4000-8000-000000000000",
+          "timeZone": "2024-01-01T00:00:00Z",
+          "callingWindow": {
+            "days": ["MON"],
+            "ranges": [
+              {
+                "start": "09:00",
+                "end": "17:30"
+              }
+            ]
+          },
+          "maxConcurrent": 1,
+          "ringTimeoutSec": 5,
+          "retryPolicy": {
+            "maxAttempts": 3,
+            "maxSystemRetries": 5,
+            "retryOutcomes": ["NO_ANSWER"],
+            "intervalSec": {
+              "key": 60
+            },
+            "transientBackoff": {
+              "baseSec": 300,
+              "factor": 3,
+              "capSec": 14400
+            }
+          },
+          "defaultCountryCode": "1",
+          "followUpQueueId": "00000000-0000-4000-8000-000000000000"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["campaigns:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["campaigns:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "PATCH",
+        "path": "/campaigns/00000000-0000-4000-8000-000000000000",
+        "query": "",
+        "url": "https://behavior.test/campaigns/00000000-0000-4000-8000-000000000000",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"name\":\"Example Name\",\"didId\":\"00000000-0000-4000-8000-000000000000\",\"timeZone\":\"2024-01-01T00:00:00Z\",\"callingWindow\":{\"days\":[\"MON\"],\"ranges\":[{\"start\":\"09:00\",\"end\":\"17:30\"}]},\"maxConcurrent\":1,\"ringTimeoutSec\":5,\"retryPolicy\":{\"maxAttempts\":3,\"maxSystemRetries\":5,\"retryOutcomes\":[\"NO_ANSWER\"],\"intervalSec\":{\"key\":60},\"transientBackoff\":{\"baseSec\":300,\"factor\":3,\"capSec\":14400}},\"defaultCountryCode\":\"1\",\"followUpQueueId\":\"00000000-0000-4000-8000-000000000000\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"id\":\"00000000-0000-4000-8000-000000000000\",\"name\":\"Example Name\",\"didId\":\"00000000-0000-4000-8000-000000000000\",\"didNumber\":\"didNumber\",\"status\":\"DRAFT\",\"pauseReason\":\"MANUAL\",\"timeZone\":\"2024-01-01T00:00:00Z\",\"callingWindow\":{\"days\":[\"MON\"],\"ranges\":[{\"start\":\"09:00\",\"end\":\"17:30\"}]},\"defaultCountryCode\":\"defaultCountryCode\",\"maxConcurrent\":1,\"ringTimeoutSec\":1,\"retryPolicy\":{\"maxAttempts\":3,\"maxSystemRetries\":5,\"retryOutcomes\":[\"NO_ANSWER\"],\"intervalSec\":{\"key\":60},\"transientBackoff\":{\"baseSec\":300,\"factor\":3,\"capSec\":14400}},\"followUpQueueId\":\"00000000-0000-4000-8000-000000000000\",\"createdAt\":\"2024-01-01T00:00:00Z\",\"startedAt\":\"2024-01-01T00:00:00Z\",\"finishedAt\":\"2024-01-01T00:00:00Z\",\"contacts\":{\"total\":100,\"active\":1,\"done\":1,\"exhausted\":1,\"invalidNumber\":1,\"dnc\":1},\"activity\":\"DIALING\",\"nextDialAt\":\"2024-01-01T00:00:00Z\",\"inFlight\":0,\"flowFields\":[\"flowFields\"]}",
+        "value": {
+          "id": "00000000-0000-4000-8000-000000000000",
+          "name": "Example Name",
+          "didId": "00000000-0000-4000-8000-000000000000",
+          "didNumber": "didNumber",
+          "status": "DRAFT",
+          "pauseReason": "MANUAL",
+          "timeZone": "2024-01-01T00:00:00Z",
+          "callingWindow": {
+            "days": ["MON"],
+            "ranges": [
+              {
+                "start": "09:00",
+                "end": "17:30"
+              }
+            ]
+          },
+          "defaultCountryCode": "defaultCountryCode",
+          "maxConcurrent": 1,
+          "ringTimeoutSec": 1,
+          "retryPolicy": {
+            "maxAttempts": 3,
+            "maxSystemRetries": 5,
+            "retryOutcomes": ["NO_ANSWER"],
+            "intervalSec": {
+              "key": 60
+            },
+            "transientBackoff": {
+              "baseSec": 300,
+              "factor": 3,
+              "capSec": 14400
+            }
+          },
+          "followUpQueueId": "00000000-0000-4000-8000-000000000000",
+          "createdAt": "2024-01-01T00:00:00Z",
+          "startedAt": "2024-01-01T00:00:00Z",
+          "finishedAt": "2024-01-01T00:00:00Z",
+          "contacts": {
+            "total": 100,
+            "active": 1,
+            "done": 1,
+            "exhausted": 1,
+            "invalidNumber": 1,
+            "dnc": 1
+          },
+          "activity": "DIALING",
+          "nextDialAt": "2024-01-01T00:00:00Z",
+          "inFlight": 0,
+          "flowFields": ["flowFields"]
+        }
+      }
+    },
+    {
+      "id": "behavior-65",
+      "operationId": "deleteCampaign",
+      "kinds": ["auth-application", "empty-response", "error-response", "path-serialization"],
+      "request": {
+        "method": "DELETE",
+        "pathTemplate": "/campaigns/{campaignId}",
+        "pathParameters": {
+          "campaignId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["campaigns:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["campaigns:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "DELETE",
+        "path": "/campaigns/00000000-0000-4000-8000-000000000000",
+        "query": "",
+        "url": "https://behavior.test/campaigns/00000000-0000-4000-8000-000000000000",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "empty",
+        "status": 204,
+        "mediaType": null,
+        "body": "",
+        "value": null
+      }
+    },
+    {
+      "id": "behavior-66",
+      "operationId": "startCampaign",
+      "kinds": ["auth-application", "error-response", "json-response", "path-serialization"],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/campaigns/{campaignId}/start",
+        "pathParameters": {
+          "campaignId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["campaigns:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["campaigns:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/campaigns/00000000-0000-4000-8000-000000000000/start",
+        "query": "",
+        "url": "https://behavior.test/campaigns/00000000-0000-4000-8000-000000000000/start",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"id\":\"00000000-0000-4000-8000-000000000000\",\"name\":\"Example Name\",\"didId\":\"00000000-0000-4000-8000-000000000000\",\"didNumber\":\"didNumber\",\"status\":\"DRAFT\",\"pauseReason\":\"MANUAL\",\"timeZone\":\"2024-01-01T00:00:00Z\",\"callingWindow\":{\"days\":[\"MON\"],\"ranges\":[{\"start\":\"09:00\",\"end\":\"17:30\"}]},\"defaultCountryCode\":\"defaultCountryCode\",\"maxConcurrent\":1,\"ringTimeoutSec\":1,\"retryPolicy\":{\"maxAttempts\":3,\"maxSystemRetries\":5,\"retryOutcomes\":[\"NO_ANSWER\"],\"intervalSec\":{\"key\":60},\"transientBackoff\":{\"baseSec\":300,\"factor\":3,\"capSec\":14400}},\"followUpQueueId\":\"00000000-0000-4000-8000-000000000000\",\"createdAt\":\"2024-01-01T00:00:00Z\",\"startedAt\":\"2024-01-01T00:00:00Z\",\"finishedAt\":\"2024-01-01T00:00:00Z\",\"contacts\":{\"total\":100,\"active\":1,\"done\":1,\"exhausted\":1,\"invalidNumber\":1,\"dnc\":1},\"activity\":\"DIALING\",\"nextDialAt\":\"2024-01-01T00:00:00Z\",\"inFlight\":0,\"flowFields\":[\"flowFields\"]}",
+        "value": {
+          "id": "00000000-0000-4000-8000-000000000000",
+          "name": "Example Name",
+          "didId": "00000000-0000-4000-8000-000000000000",
+          "didNumber": "didNumber",
+          "status": "DRAFT",
+          "pauseReason": "MANUAL",
+          "timeZone": "2024-01-01T00:00:00Z",
+          "callingWindow": {
+            "days": ["MON"],
+            "ranges": [
+              {
+                "start": "09:00",
+                "end": "17:30"
+              }
+            ]
+          },
+          "defaultCountryCode": "defaultCountryCode",
+          "maxConcurrent": 1,
+          "ringTimeoutSec": 1,
+          "retryPolicy": {
+            "maxAttempts": 3,
+            "maxSystemRetries": 5,
+            "retryOutcomes": ["NO_ANSWER"],
+            "intervalSec": {
+              "key": 60
+            },
+            "transientBackoff": {
+              "baseSec": 300,
+              "factor": 3,
+              "capSec": 14400
+            }
+          },
+          "followUpQueueId": "00000000-0000-4000-8000-000000000000",
+          "createdAt": "2024-01-01T00:00:00Z",
+          "startedAt": "2024-01-01T00:00:00Z",
+          "finishedAt": "2024-01-01T00:00:00Z",
+          "contacts": {
+            "total": 100,
+            "active": 1,
+            "done": 1,
+            "exhausted": 1,
+            "invalidNumber": 1,
+            "dnc": 1
+          },
+          "activity": "DIALING",
+          "nextDialAt": "2024-01-01T00:00:00Z",
+          "inFlight": 0,
+          "flowFields": ["flowFields"]
+        }
+      }
+    },
+    {
+      "id": "behavior-67",
+      "operationId": "listCampaignContacts",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response",
+        "path-serialization",
+        "query-serialization"
+      ],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/campaigns/{campaignId}/contacts",
+        "pathParameters": {
+          "campaignId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [
+          {
+            "name": "status",
+            "style": "form",
+            "explode": true,
+            "value": "ACTIVE",
+            "serialized": "ACTIVE"
+          },
+          {
+            "name": "leadIntent",
+            "style": "form",
+            "explode": true,
+            "value": "HIGH",
+            "serialized": "HIGH"
+          },
+          {
+            "name": "limit",
+            "style": "form",
+            "explode": true,
+            "value": 50,
+            "serialized": "50"
+          },
+          {
+            "name": "offset",
+            "style": "form",
+            "explode": true,
+            "value": 0,
+            "serialized": "0"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["campaigns:read"]
+          },
+          {
+            "apiKeyBearer": ["campaigns:read"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/campaigns/00000000-0000-4000-8000-000000000000/contacts",
+        "query": "status=ACTIVE&leadIntent=HIGH&limit=50&offset=0",
+        "url": "https://behavior.test/campaigns/00000000-0000-4000-8000-000000000000/contacts?status=ACTIVE&leadIntent=HIGH&limit=50&offset=0",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"items\":[{\"id\":\"00000000-0000-4000-8000-000000000000\",\"campaignId\":\"00000000-0000-4000-8000-000000000000\",\"number\":\"number\",\"numberRaw\":\"numberRaw\",\"timeZone\":\"2024-01-01T00:00:00Z\",\"slots\":{\"key\":\"key\"},\"status\":\"ACTIVE\",\"attempts\":1,\"systemFailures\":1,\"nextAttemptAt\":\"2024-01-01T00:00:00Z\",\"lastOutcome\":\"ANSWERED\",\"leadIntent\":\"HIGH\",\"leadNotes\":\"leadNotes\",\"lastCallId\":\"00000000-0000-4000-8000-000000000000\",\"lastAttemptId\":\"00000000-0000-4000-8000-000000000000\",\"createdAt\":\"2024-01-01T00:00:00Z\"}],\"total\":100}",
+        "value": {
+          "items": [
+            {
+              "id": "00000000-0000-4000-8000-000000000000",
+              "campaignId": "00000000-0000-4000-8000-000000000000",
+              "number": "number",
+              "numberRaw": "numberRaw",
+              "timeZone": "2024-01-01T00:00:00Z",
+              "slots": {
+                "key": "key"
+              },
+              "status": "ACTIVE",
+              "attempts": 1,
+              "systemFailures": 1,
+              "nextAttemptAt": "2024-01-01T00:00:00Z",
+              "lastOutcome": "ANSWERED",
+              "leadIntent": "HIGH",
+              "leadNotes": "leadNotes",
+              "lastCallId": "00000000-0000-4000-8000-000000000000",
+              "lastAttemptId": "00000000-0000-4000-8000-000000000000",
+              "createdAt": "2024-01-01T00:00:00Z"
+            }
+          ],
+          "total": 100
+        }
+      }
+    },
+    {
+      "id": "behavior-68",
+      "operationId": "importCampaignContacts",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/campaigns/{campaignId}/contacts",
+        "pathParameters": {
+          "campaignId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "contacts": [
+            {
+              "number": "number",
+              "timeZone": "2024-01-01T00:00:00Z",
+              "slots": {
+                "key": "key"
+              }
+            }
+          ]
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["campaigns:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["campaigns:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/campaigns/00000000-0000-4000-8000-000000000000/contacts",
+        "query": "",
+        "url": "https://behavior.test/campaigns/00000000-0000-4000-8000-000000000000/contacts",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"contacts\":[{\"number\":\"number\",\"timeZone\":\"2024-01-01T00:00:00Z\",\"slots\":{\"key\":\"key\"}}]}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"imported\":1,\"duplicates\":1,\"rejected\":1,\"rows\":[{\"index\":1,\"status\":\"IMPORTED\",\"contactId\":\"00000000-0000-4000-8000-000000000000\",\"number\":\"number\",\"code\":\"NUMBER_EMPTY\",\"detail\":\"detail\"}]}",
+        "value": {
+          "imported": 1,
+          "duplicates": 1,
+          "rejected": 1,
+          "rows": [
+            {
+              "index": 1,
+              "status": "IMPORTED",
+              "contactId": "00000000-0000-4000-8000-000000000000",
+              "number": "number",
+              "code": "NUMBER_EMPTY",
+              "detail": "detail"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "behavior-69",
+      "operationId": "getSystemHealth",
+      "kinds": ["auth-application", "error-response", "json-response"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/system/health",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["config:read"]
+          },
+          {
+            "apiKeyBearer": ["config:read"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/system/health",
+        "query": "",
+        "url": "https://behavior.test/system/health",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"sseClients\":1,\"oldestSeq\":1,\"trunks\":[{\"name\":\"Example Name\",\"profile\":\"profile\",\"address\":\"address\",\"state\":\"state\",\"isUp\":false}]}",
+        "value": {
+          "sseClients": 1,
+          "oldestSeq": 1,
+          "trunks": [
+            {
+              "name": "Example Name",
+              "profile": "profile",
+              "address": "address",
+              "state": "state",
+              "isUp": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "behavior-70",
+      "operationId": "streamEvents",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "header-serialization",
+        "query-serialization",
+        "streaming"
+      ],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/events",
+        "pathParameters": {},
+        "query": [
+          {
+            "name": "types",
+            "style": "form",
+            "explode": true,
+            "value": "types",
+            "serialized": "types"
+          },
+          {
+            "name": "lastEventId",
+            "style": "form",
+            "explode": true,
+            "value": 1,
+            "serialized": "1"
+          }
+        ],
+        "headers": {
+          "last-event-id": "1"
+        },
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["calls:read:own"]
+          },
+          {
+            "apiKeyBearer": ["calls:read:own"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/events",
+        "query": "types=types&lastEventId=1",
+        "url": "https://behavior.test/events?types=types&lastEventId=1",
+        "headers": {
+          "last-event-id": "1"
+        },
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "empty",
+        "status": 204,
+        "mediaType": null,
+        "body": "",
+        "value": null
+      }
+    },
+    {
+      "id": "behavior-71",
+      "operationId": "listCallQueueEvents",
+      "kinds": ["auth-application", "error-response", "json-response", "path-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/calls/{callId}/queue-events",
+        "pathParameters": {
+          "callId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["history:read:all"]
+          },
+          {
+            "apiKeyBearer": ["history:read:all"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/calls/00000000-0000-4000-8000-000000000000/queue-events",
+        "query": "",
+        "url": "https://behavior.test/calls/00000000-0000-4000-8000-000000000000/queue-events",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"items\":[{\"occurredAt\":\"2024-01-01T00:00:00Z\",\"queueId\":\"00000000-0000-4000-8000-000000000000\",\"event\":\"JOINED\",\"agentId\":\"00000000-0000-4000-8000-000000000000\",\"waitMs\":1}]}",
+        "value": {
+          "items": [
+            {
+              "occurredAt": "2024-01-01T00:00:00Z",
+              "queueId": "00000000-0000-4000-8000-000000000000",
+              "event": "JOINED",
+              "agentId": "00000000-0000-4000-8000-000000000000",
+              "waitMs": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "behavior-72",
+      "operationId": "listAuditLogs",
+      "kinds": ["auth-application", "error-response", "json-response", "query-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/audit-logs",
+        "pathParameters": {},
+        "query": [
+          {
+            "name": "actorId",
+            "style": "form",
+            "explode": true,
+            "value": "00000000-0000-4000-8000-000000000000",
+            "serialized": "00000000-0000-4000-8000-000000000000"
+          },
+          {
+            "name": "actionPrefix",
+            "style": "form",
+            "explode": true,
+            "value": "actionPrefix",
+            "serialized": "actionPrefix"
+          },
+          {
+            "name": "from",
+            "style": "form",
+            "explode": true,
+            "value": "2024-01-01T00:00:00Z",
+            "serialized": "2024-01-01T00:00:00Z"
+          },
+          {
+            "name": "to",
+            "style": "form",
+            "explode": true,
+            "value": "2024-01-01T00:00:00Z",
+            "serialized": "2024-01-01T00:00:00Z"
+          },
+          {
+            "name": "limit",
+            "style": "form",
+            "explode": true,
+            "value": 50,
+            "serialized": "50"
+          },
+          {
+            "name": "offset",
+            "style": "form",
+            "explode": true,
+            "value": 0,
+            "serialized": "0"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["audit:read"]
+          },
+          {
+            "apiKeyBearer": ["audit:read"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/audit-logs",
+        "query": "actorId=00000000-0000-4000-8000-000000000000&actionPrefix=actionPrefix&from=2024-01-01T00%3A00%3A00Z&to=2024-01-01T00%3A00%3A00Z&limit=50&offset=0",
+        "url": "https://behavior.test/audit-logs?actorId=00000000-0000-4000-8000-000000000000&actionPrefix=actionPrefix&from=2024-01-01T00%3A00%3A00Z&to=2024-01-01T00%3A00%3A00Z&limit=50&offset=0",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"items\":[{\"auditId\":1,\"occurredAt\":\"2024-01-01T00:00:00Z\",\"actorId\":\"00000000-0000-4000-8000-000000000000\",\"actorUsername\":\"Example Name\",\"subjectKind\":\"USER\",\"subjectId\":\"00000000-0000-4000-8000-000000000000\",\"subjectName\":\"Example Name\",\"agentId\":\"00000000-0000-4000-8000-000000000000\",\"action\":\"action\",\"targetKind\":\"targetKind\",\"targetId\":\"target-1\",\"detail\":{},\"ip\":\"ip\"}],\"total\":100}",
+        "value": {
+          "items": [
+            {
+              "auditId": 1,
+              "occurredAt": "2024-01-01T00:00:00Z",
+              "actorId": "00000000-0000-4000-8000-000000000000",
+              "actorUsername": "Example Name",
+              "subjectKind": "USER",
+              "subjectId": "00000000-0000-4000-8000-000000000000",
+              "subjectName": "Example Name",
+              "agentId": "00000000-0000-4000-8000-000000000000",
+              "action": "action",
+              "targetKind": "targetKind",
+              "targetId": "target-1",
+              "detail": {},
+              "ip": "ip"
+            }
+          ],
+          "total": 100
+        }
+      }
+    },
+    {
+      "id": "behavior-73",
+      "operationId": "patchUserData",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "PATCH",
+        "pathTemplate": "/calls/{callId}/user-data",
+        "pathParameters": {
+          "callId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "userData": {
+            "key": "key"
+          }
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["calls:control"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["calls:control"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "PATCH",
+        "path": "/calls/00000000-0000-4000-8000-000000000000/user-data",
+        "query": "",
+        "url": "https://behavior.test/calls/00000000-0000-4000-8000-000000000000/user-data",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"userData\":{\"key\":\"key\"}}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"userData\":{\"key\":\"key\"},\"changedKeys\":[\"changedKeys\"],\"deletedKeys\":[\"deletedKeys\"]}",
+        "value": {
+          "userData": {
+            "key": "key"
+          },
+          "changedKeys": ["changedKeys"],
+          "deletedKeys": ["deletedKeys"]
+        }
+      }
+    },
+    {
+      "id": "behavior-74",
+      "operationId": "createWebhookSubscription",
+      "kinds": ["auth-application", "error-response", "json-request", "json-response"],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/webhook-subscriptions",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "body": {
+          "name": "Example Name",
+          "url": "https://example.com",
+          "filter": {
+            "callType": ["INBOUND"],
+            "did": ["d-1"],
+            "queueId": ["00000000-0000-4000-8000-000000000000"],
+            "status": ["active"],
+            "isContained": [false],
+            "campaignId": ["00000000-0000-4000-8000-000000000000"]
+          },
+          "authToken": "authToken",
+          "isEnabled": false
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["config:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["config:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/webhook-subscriptions",
+        "query": "",
+        "url": "https://behavior.test/webhook-subscriptions",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"name\":\"Example Name\",\"url\":\"https://example.com\",\"filter\":{\"callType\":[\"INBOUND\"],\"did\":[\"d-1\"],\"queueId\":[\"00000000-0000-4000-8000-000000000000\"],\"status\":[\"active\"],\"isContained\":[false],\"campaignId\":[\"00000000-0000-4000-8000-000000000000\"]},\"authToken\":\"authToken\",\"isEnabled\":false}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"subscriptionId\":\"00000000-0000-4000-8000-000000000000\",\"name\":\"Example Name\",\"url\":\"https://example.com\",\"filter\":{\"callType\":[\"INBOUND\"],\"did\":[\"d-1\"],\"queueId\":[\"00000000-0000-4000-8000-000000000000\"],\"status\":[\"active\"],\"isContained\":[false],\"campaignId\":[\"00000000-0000-4000-8000-000000000000\"]},\"isEnabled\":false,\"hasAuthToken\":false,\"createdAt\":\"2024-01-01T00:00:00Z\",\"updatedAt\":\"2024-01-01T00:00:00Z\"}",
+        "value": {
+          "subscriptionId": "00000000-0000-4000-8000-000000000000",
+          "name": "Example Name",
+          "url": "https://example.com",
+          "filter": {
+            "callType": ["INBOUND"],
+            "did": ["d-1"],
+            "queueId": ["00000000-0000-4000-8000-000000000000"],
+            "status": ["active"],
+            "isContained": [false],
+            "campaignId": ["00000000-0000-4000-8000-000000000000"]
+          },
+          "isEnabled": false,
+          "hasAuthToken": false,
+          "createdAt": "2024-01-01T00:00:00Z",
+          "updatedAt": "2024-01-01T00:00:00Z"
+        }
+      }
+    },
+    {
+      "id": "behavior-75",
+      "operationId": "deleteWebhookSubscription",
+      "kinds": ["auth-application", "empty-response", "error-response", "path-serialization"],
+      "request": {
+        "method": "DELETE",
+        "pathTemplate": "/webhook-subscriptions/{subscriptionId}",
+        "pathParameters": {
+          "subscriptionId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["config:write"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["config:write"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "DELETE",
+        "path": "/webhook-subscriptions/00000000-0000-4000-8000-000000000000",
+        "query": "",
+        "url": "https://behavior.test/webhook-subscriptions/00000000-0000-4000-8000-000000000000",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "empty",
+        "status": 204,
+        "mediaType": null,
+        "body": "",
+        "value": null
+      }
+    },
+    {
+      "id": "behavior-76",
+      "operationId": "listWebhookDeliveries",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response",
+        "path-serialization",
+        "query-serialization"
+      ],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/webhook-subscriptions/{subscriptionId}/deliveries",
+        "pathParameters": {
+          "subscriptionId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [
+          {
+            "name": "limit",
+            "style": "form",
+            "explode": true,
+            "value": 50,
+            "serialized": "50"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["config:read"]
+          },
+          {
+            "apiKeyBearer": ["config:read"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/webhook-subscriptions/00000000-0000-4000-8000-000000000000/deliveries",
+        "query": "limit=50",
+        "url": "https://behavior.test/webhook-subscriptions/00000000-0000-4000-8000-000000000000/deliveries?limit=50",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"items\":[{\"deliveryId\":\"00000000-0000-4000-8000-000000000000\",\"callId\":\"00000000-0000-4000-8000-000000000000\",\"revision\":1,\"status\":\"PENDING\",\"attemptCount\":1,\"nextAttemptAt\":\"2024-01-01T00:00:00Z\",\"lastStatusCode\":200,\"lastError\":\"lastError\",\"createdAt\":\"2024-01-01T00:00:00Z\",\"deliveredAt\":\"2024-01-01T00:00:00Z\"}]}",
+        "value": {
+          "items": [
+            {
+              "deliveryId": "00000000-0000-4000-8000-000000000000",
+              "callId": "00000000-0000-4000-8000-000000000000",
+              "revision": 1,
+              "status": "PENDING",
+              "attemptCount": 1,
+              "nextAttemptAt": "2024-01-01T00:00:00Z",
+              "lastStatusCode": 200,
+              "lastError": "lastError",
+              "createdAt": "2024-01-01T00:00:00Z",
+              "deliveredAt": "2024-01-01T00:00:00Z"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "behavior-77",
+      "operationId": "getOpenAPI",
+      "kinds": ["json-response"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/openapi.json",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": []
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/openapi.json",
+        "query": "",
+        "url": "https://behavior.test/openapi.json",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{}",
+        "value": {}
+      }
+    },
+    {
+      "id": "behavior-78",
+      "operationId": "listAPIKeys",
+      "kinds": ["auth-application", "error-response", "json-response"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/api-keys",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["keys:manage"]
+          },
+          {
+            "apiKeyBearer": ["keys:manage"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/api-keys",
+        "query": "",
+        "url": "https://behavior.test/api-keys",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"items\":[{\"id\":\"00000000-0000-4000-8000-000000000000\",\"name\":\"Example Name\",\"keyPrefix\":\"keyPrefix\",\"status\":\"ENABLED\",\"scopes\":[\"scopes\"],\"createdAt\":\"2024-01-01T00:00:00Z\",\"lastUsedAt\":\"2024-01-01T00:00:00Z\",\"revokedAt\":\"2024-01-01T00:00:00Z\"}]}",
+        "value": {
+          "items": [
+            {
+              "id": "00000000-0000-4000-8000-000000000000",
+              "name": "Example Name",
+              "keyPrefix": "keyPrefix",
+              "status": "ENABLED",
+              "scopes": ["scopes"],
+              "createdAt": "2024-01-01T00:00:00Z",
+              "lastUsedAt": "2024-01-01T00:00:00Z",
+              "revokedAt": "2024-01-01T00:00:00Z"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "behavior-79",
+      "operationId": "createAPIKey",
+      "kinds": ["auth-application", "error-response", "json-request", "json-response"],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/api-keys",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "body": {
+          "name": "Example Name",
+          "scopes": ["scopes"]
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["keys:manage"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["keys:manage"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/api-keys",
+        "query": "",
+        "url": "https://behavior.test/api-keys",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"name\":\"Example Name\",\"scopes\":[\"scopes\"]}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"id\":\"00000000-0000-4000-8000-000000000000\",\"name\":\"Example Name\",\"keyPrefix\":\"keyPrefix\",\"status\":\"ENABLED\",\"scopes\":[\"scopes\"],\"createdAt\":\"2024-01-01T00:00:00Z\",\"lastUsedAt\":\"2024-01-01T00:00:00Z\",\"revokedAt\":\"2024-01-01T00:00:00Z\",\"secret\":\"secret\"}",
+        "value": {
+          "id": "00000000-0000-4000-8000-000000000000",
+          "name": "Example Name",
+          "keyPrefix": "keyPrefix",
+          "status": "ENABLED",
+          "scopes": ["scopes"],
+          "createdAt": "2024-01-01T00:00:00Z",
+          "lastUsedAt": "2024-01-01T00:00:00Z",
+          "revokedAt": "2024-01-01T00:00:00Z",
+          "secret": "secret"
+        }
+      }
+    },
+    {
+      "id": "behavior-80",
+      "operationId": "getAPIKey",
+      "kinds": ["auth-application", "error-response", "json-response", "path-serialization"],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/api-keys/{keyId}",
+        "pathParameters": {
+          "keyId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["keys:manage"]
+          },
+          {
+            "apiKeyBearer": ["keys:manage"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/api-keys/00000000-0000-4000-8000-000000000000",
+        "query": "",
+        "url": "https://behavior.test/api-keys/00000000-0000-4000-8000-000000000000",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"id\":\"00000000-0000-4000-8000-000000000000\",\"name\":\"Example Name\",\"keyPrefix\":\"keyPrefix\",\"status\":\"ENABLED\",\"scopes\":[\"scopes\"],\"createdAt\":\"2024-01-01T00:00:00Z\",\"lastUsedAt\":\"2024-01-01T00:00:00Z\",\"revokedAt\":\"2024-01-01T00:00:00Z\"}",
+        "value": {
+          "id": "00000000-0000-4000-8000-000000000000",
+          "name": "Example Name",
+          "keyPrefix": "keyPrefix",
+          "status": "ENABLED",
+          "scopes": ["scopes"],
+          "createdAt": "2024-01-01T00:00:00Z",
+          "lastUsedAt": "2024-01-01T00:00:00Z",
+          "revokedAt": "2024-01-01T00:00:00Z"
+        }
+      }
+    },
+    {
+      "id": "behavior-81",
+      "operationId": "updateAPIKey",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "PATCH",
+        "pathTemplate": "/api-keys/{keyId}",
+        "pathParameters": {
+          "keyId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "name": "Example Name",
+          "scopes": ["scopes"]
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "cookieSession": ["keys:manage"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["keys:manage"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "PATCH",
+        "path": "/api-keys/00000000-0000-4000-8000-000000000000",
+        "query": "",
+        "url": "https://behavior.test/api-keys/00000000-0000-4000-8000-000000000000",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"name\":\"Example Name\",\"scopes\":[\"scopes\"]}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"id\":\"00000000-0000-4000-8000-000000000000\",\"name\":\"Example Name\",\"keyPrefix\":\"keyPrefix\",\"status\":\"ENABLED\",\"scopes\":[\"scopes\"],\"createdAt\":\"2024-01-01T00:00:00Z\",\"lastUsedAt\":\"2024-01-01T00:00:00Z\",\"revokedAt\":\"2024-01-01T00:00:00Z\"}",
+        "value": {
+          "id": "00000000-0000-4000-8000-000000000000",
+          "name": "Example Name",
+          "keyPrefix": "keyPrefix",
+          "status": "ENABLED",
+          "scopes": ["scopes"],
+          "createdAt": "2024-01-01T00:00:00Z",
+          "lastUsedAt": "2024-01-01T00:00:00Z",
+          "revokedAt": "2024-01-01T00:00:00Z"
+        }
+      }
+    },
+    {
+      "id": "behavior-82",
+      "operationId": "revokeAPIKey",
+      "kinds": ["auth-application", "error-response", "json-response", "path-serialization"],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/api-keys/{keyId}/revoke",
+        "pathParameters": {
+          "keyId": "00000000-0000-4000-8000-000000000000"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "cookieSession": ["keys:manage"],
+            "csrfHeader": []
+          },
+          {
+            "apiKeyBearer": ["keys:manage"]
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/api-keys/00000000-0000-4000-8000-000000000000/revoke",
+        "query": "",
+        "url": "https://behavior.test/api-keys/00000000-0000-4000-8000-000000000000/revoke",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"id\":\"00000000-0000-4000-8000-000000000000\",\"name\":\"Example Name\",\"keyPrefix\":\"keyPrefix\",\"status\":\"ENABLED\",\"scopes\":[\"scopes\"],\"createdAt\":\"2024-01-01T00:00:00Z\",\"lastUsedAt\":\"2024-01-01T00:00:00Z\",\"revokedAt\":\"2024-01-01T00:00:00Z\"}",
+        "value": {
+          "id": "00000000-0000-4000-8000-000000000000",
+          "name": "Example Name",
+          "keyPrefix": "keyPrefix",
+          "status": "ENABLED",
+          "scopes": ["scopes"],
+          "createdAt": "2024-01-01T00:00:00Z",
+          "lastUsedAt": "2024-01-01T00:00:00Z",
+          "revokedAt": "2024-01-01T00:00:00Z"
+        }
+      }
+    },
+    {
+      "id": "behavior-1-lost-response",
+      "operationId": "login",
+      "kinds": [],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/auth/login",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "body": {
+          "username": "Example Name",
+          "password": "password"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": []
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/auth/login",
+        "query": "",
+        "url": "https://behavior.test/auth/login",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"username\":\"Example Name\",\"password\":\"password\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"user\":{\"userId\":\"00000000-0000-4000-8000-000000000000\",\"username\":\"Example Name\",\"displayName\":\"Example Name\",\"role\":\"AGENT\",\"locale\":\"locale\"},\"isDeviceRegistered\":false,\"deviceAccount\":\"deviceAccount\"}",
+        "value": {
+          "user": {
+            "userId": "00000000-0000-4000-8000-000000000000",
+            "username": "Example Name",
+            "displayName": "Example Name",
+            "role": "AGENT",
+            "locale": "locale"
+          },
+          "isDeviceRegistered": false,
+          "deviceAccount": "deviceAccount"
+        }
+      },
+      "probe": "lost-response"
+    },
+    {
+      "id": "behavior-1-response-decode",
+      "operationId": "login",
+      "kinds": [],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/auth/login",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "body": {
+          "username": "Example Name",
+          "password": "password"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": []
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/auth/login",
+        "query": "",
+        "url": "https://behavior.test/auth/login",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"username\":\"Example Name\",\"password\":\"password\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"truncated\": ",
+        "errorKind": "ResponseDecode"
+      },
+      "probe": "response-decode"
+    }
+  ]
+}

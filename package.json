@@ -1,0 +1,56 @@
+{
+  "name": "ai-native-call-center-api",
+  "description": "The single contract for every HTTP endpoint the platform serves. Spec-first: this document is the source of truth; Go and TypeScript types are generated from it, never the other way around. The embedded web application is one consumer of this contract, with no route and no capability of its own.\n\nNaming follows docs/design/07-naming.md: JSON properties are lowerCamelCase with initialisms treated as words (callId), enum values are SCREAMING_SNAKE_CASE and byte-identical across JSON, TypeScript and the database, timestamps are xxxAt (RFC 3339), durations are xxxSec/xxxMs, booleans are is/has prefixed.\n\n**Authorization is scopes, not roles.** Every operation declares the scopes it needs; the vocabulary is x-scopes at the root of this document and nothing else defines it. Two credentials carry those scopes and neither is the norm: a person signs in at a browser and gets a session cookie (POST /auth/login), whose scopes are derived from the account's role — the role itself never reaches the wire; a system presents an API key as `Authorization: Bearer <key>` and carries exactly the scopes it was issued with. A key may act for an agent by sending `X-AICC-Agent-ID`; the same header on a session request is refused. A mutating request that authenticates with the cookie must also carry X-AICC-Csrf; one that authenticates with a key must not — that header protects a credential the browser sends automatically.\n\nErrors always use the single envelope {\"error\": {code, message, params}}; the code is machine-readable and localized by the client. That holds for the router's own refusals too: a path this contract does not declare is 404 NOT_FOUND and a method it does not declare on a path it does is 405 METHOD_NOT_ALLOWED, both in the envelope — never the web application's index.html, which a client cannot tell from a successful response.\n\nA separate unauthenticated operations listener (AICC_METRICS_ADDR, default 127.0.0.1:9090) serves GET /metrics, /healthz and /readyz in plain text; it is deliberately outside this contract.",
+  "version": "1.0.0",
+  "keywords": [
+    "ai",
+    "native",
+    "call",
+    "center",
+    "api",
+    "sdk",
+    "client"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ],
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/octri-dev/aicc-typescript-unofficial-demo-sdk.git"
+  },
+  "homepage": "https://github.com/octri-dev/aicc-typescript-unofficial-demo-sdk",
+  "bugs": {
+    "url": "https://github.com/octri-dev/aicc-typescript-unofficial-demo-sdk/issues"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "format": "oxfmt --check src test/*.mjs",
+    "lint": "oxlint src test",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run build && node --test \"test/**/*.test.mjs\"",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "oxfmt": "^0.59.0",
+    "oxlint": "^1.0.0",
+    "typescript": "^5.4.0"
+  }
+}

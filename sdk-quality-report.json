@@ -1,0 +1,991 @@
+{
+  "language": "typescript",
+  "operations": 112,
+  "operationCount": 112,
+  "operationIdentities": [
+    {
+      "publicOperationId": "agentLogin",
+      "wireOperationId": "agentLogin",
+      "method": "post",
+      "path": "/agent/login",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "agentLogout",
+      "wireOperationId": "agentLogout",
+      "method": "post",
+      "path": "/agent/logout",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "agentNotReady",
+      "wireOperationId": "agentNotReady",
+      "method": "post",
+      "path": "/agent/not-ready",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "agentReady",
+      "wireOperationId": "agentReady",
+      "method": "post",
+      "path": "/agent/ready",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "agentWrapUp",
+      "wireOperationId": "agentWrapUp",
+      "method": "post",
+      "path": "/agent/wrap-up",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "answerCall",
+      "wireOperationId": "answerCall",
+      "method": "post",
+      "path": "/calls/{callId}/answer",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "cancelCampaign",
+      "wireOperationId": "cancelCampaign",
+      "method": "post",
+      "path": "/campaigns/{campaignId}/cancel",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "claimCallback",
+      "wireOperationId": "claimCallback",
+      "method": "post",
+      "path": "/callbacks/{callbackId}/claim",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "completeCallback",
+      "wireOperationId": "completeCallback",
+      "method": "post",
+      "path": "/callbacks/{callbackId}/complete",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "createAgent",
+      "wireOperationId": "createAgent",
+      "method": "post",
+      "path": "/agents",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "createAgentSipSession",
+      "wireOperationId": "createAgentSipSession",
+      "method": "post",
+      "path": "/agent/sip-session",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "createApiKey",
+      "wireOperationId": "createAPIKey",
+      "method": "post",
+      "path": "/api-keys",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "createCall",
+      "wireOperationId": "createCall",
+      "method": "post",
+      "path": "/calls",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "createCampaign",
+      "wireOperationId": "createCampaign",
+      "method": "post",
+      "path": "/campaigns",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "createContact",
+      "wireOperationId": "createContact",
+      "method": "post",
+      "path": "/contacts",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "createDid",
+      "wireOperationId": "createDID",
+      "method": "post",
+      "path": "/dids",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "createDncNumber",
+      "wireOperationId": "createDncNumber",
+      "method": "post",
+      "path": "/dnc-numbers",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "createExtension",
+      "wireOperationId": "createExtension",
+      "method": "post",
+      "path": "/extensions",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "createFlow",
+      "wireOperationId": "createFlow",
+      "method": "post",
+      "path": "/flows",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "createQueue",
+      "wireOperationId": "createQueue",
+      "method": "post",
+      "path": "/queues",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "createRecordingReview",
+      "wireOperationId": "createRecordingReview",
+      "method": "post",
+      "path": "/recordings/{recordingId}/reviews",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "createUser",
+      "wireOperationId": "createUser",
+      "method": "post",
+      "path": "/users",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "createWebhookSubscription",
+      "wireOperationId": "createWebhookSubscription",
+      "method": "post",
+      "path": "/webhook-subscriptions",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "deleteAgent",
+      "wireOperationId": "deleteAgent",
+      "method": "delete",
+      "path": "/agents/{agentId}",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "deleteAgentSipSession",
+      "wireOperationId": "deleteAgentSipSession",
+      "method": "delete",
+      "path": "/agent/sip-session",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "deleteCampaign",
+      "wireOperationId": "deleteCampaign",
+      "method": "delete",
+      "path": "/campaigns/{campaignId}",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "deleteContact",
+      "wireOperationId": "deleteContact",
+      "method": "delete",
+      "path": "/contacts/{contactId}",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "deleteDid",
+      "wireOperationId": "deleteDID",
+      "method": "delete",
+      "path": "/dids/{didId}",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "deleteDncNumber",
+      "wireOperationId": "deleteDncNumber",
+      "method": "delete",
+      "path": "/dnc-numbers/{number}",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "deleteExtension",
+      "wireOperationId": "deleteExtension",
+      "method": "delete",
+      "path": "/extensions/{extensionId}",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "deleteQueue",
+      "wireOperationId": "deleteQueue",
+      "method": "delete",
+      "path": "/queues/{queueId}",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "deleteWebhookSubscription",
+      "wireOperationId": "deleteWebhookSubscription",
+      "method": "delete",
+      "path": "/webhook-subscriptions/{subscriptionId}",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "forceLogoutAgent",
+      "wireOperationId": "forceLogoutAgent",
+      "method": "post",
+      "path": "/agents/{agentId}/force-logout",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "getAgentPresence",
+      "wireOperationId": "getAgentPresence",
+      "method": "get",
+      "path": "/agent/presence",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "getAgentWrapUp",
+      "wireOperationId": "getAgentWrapUp",
+      "method": "get",
+      "path": "/agent/wrap-up",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "getApiKey",
+      "wireOperationId": "getAPIKey",
+      "method": "get",
+      "path": "/api-keys/{keyId}",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "getCallTranscript",
+      "wireOperationId": "getCallTranscript",
+      "method": "get",
+      "path": "/calls/{callId}/transcript",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "getCampaign",
+      "wireOperationId": "getCampaign",
+      "method": "get",
+      "path": "/campaigns/{campaignId}",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "getCampaignSettings",
+      "wireOperationId": "getCampaignSettings",
+      "method": "get",
+      "path": "/campaigns/settings",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "getCdr",
+      "wireOperationId": "getCDR",
+      "method": "get",
+      "path": "/cdrs/{callId}",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "getFlow",
+      "wireOperationId": "getFlow",
+      "method": "get",
+      "path": "/flows/{flowId}",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "getFlowRevision",
+      "wireOperationId": "getFlowRevision",
+      "method": "get",
+      "path": "/flows/{flowId}/revisions/{revisionId}",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "getMe",
+      "wireOperationId": "getMe",
+      "method": "get",
+      "path": "/auth/me",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "getMyDay",
+      "wireOperationId": "getMyDay",
+      "method": "get",
+      "path": "/reports/me",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "getOpenApi",
+      "wireOperationId": "getOpenAPI",
+      "method": "get",
+      "path": "/openapi.json",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "getPostCallTranscription",
+      "wireOperationId": "getPostCallTranscription",
+      "method": "get",
+      "path": "/calls/{callId}/transcription",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "getRecordingAudio",
+      "wireOperationId": "getRecordingAudio",
+      "method": "get",
+      "path": "/recordings/{recordingId}/audio",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "getReportDaily",
+      "wireOperationId": "getReportDaily",
+      "method": "get",
+      "path": "/reports/daily",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "getReportOverview",
+      "wireOperationId": "getReportOverview",
+      "method": "get",
+      "path": "/reports/overview",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "getReportQueues",
+      "wireOperationId": "getReportQueues",
+      "method": "get",
+      "path": "/reports/queues",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "getSystemHealth",
+      "wireOperationId": "getSystemHealth",
+      "method": "get",
+      "path": "/system/health",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "getWebhookSubscription",
+      "wireOperationId": "getWebhookSubscription",
+      "method": "get",
+      "path": "/webhook-subscriptions/{subscriptionId}",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "hangupCall",
+      "wireOperationId": "hangupCall",
+      "method": "post",
+      "path": "/calls/{callId}/hangup",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "holdCall",
+      "wireOperationId": "holdCall",
+      "method": "post",
+      "path": "/calls/{callId}/hold",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "importCampaignContacts",
+      "wireOperationId": "importCampaignContacts",
+      "method": "post",
+      "path": "/campaigns/{campaignId}/contacts",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "listAgents",
+      "wireOperationId": "listAgents",
+      "method": "get",
+      "path": "/agents",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listApiKeys",
+      "wireOperationId": "listAPIKeys",
+      "method": "get",
+      "path": "/api-keys",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listAuditLogs",
+      "wireOperationId": "listAuditLogs",
+      "method": "get",
+      "path": "/audit-logs",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listCallbacks",
+      "wireOperationId": "listCallbacks",
+      "method": "get",
+      "path": "/callbacks",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listCallQueueEvents",
+      "wireOperationId": "listCallQueueEvents",
+      "method": "get",
+      "path": "/calls/{callId}/queue-events",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listCallRecordings",
+      "wireOperationId": "listCallRecordings",
+      "method": "get",
+      "path": "/calls/{callId}/recordings",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listCallReviews",
+      "wireOperationId": "listCallReviews",
+      "method": "get",
+      "path": "/calls/{callId}/reviews",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listCalls",
+      "wireOperationId": "listCalls",
+      "method": "get",
+      "path": "/calls",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listCampaignAttempts",
+      "wireOperationId": "listCampaignAttempts",
+      "method": "get",
+      "path": "/campaigns/{campaignId}/attempts",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listCampaignContacts",
+      "wireOperationId": "listCampaignContacts",
+      "method": "get",
+      "path": "/campaigns/{campaignId}/contacts",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listCampaigns",
+      "wireOperationId": "listCampaigns",
+      "method": "get",
+      "path": "/campaigns",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listCdrs",
+      "wireOperationId": "listCDRs",
+      "method": "get",
+      "path": "/cdrs",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listContacts",
+      "wireOperationId": "listContacts",
+      "method": "get",
+      "path": "/contacts",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listDids",
+      "wireOperationId": "listDIDs",
+      "method": "get",
+      "path": "/dids",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listDispositions",
+      "wireOperationId": "listDispositions",
+      "method": "get",
+      "path": "/dispositions",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listDncNumbers",
+      "wireOperationId": "listDncNumbers",
+      "method": "get",
+      "path": "/dnc-numbers",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listExtensions",
+      "wireOperationId": "listExtensions",
+      "method": "get",
+      "path": "/extensions",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listFlows",
+      "wireOperationId": "listFlows",
+      "method": "get",
+      "path": "/flows",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listMyCalls",
+      "wireOperationId": "listMyCalls",
+      "method": "get",
+      "path": "/calls/mine",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listMyCdrs",
+      "wireOperationId": "listMyCDRs",
+      "method": "get",
+      "path": "/cdrs/mine",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listQueueAgents",
+      "wireOperationId": "listQueueAgents",
+      "method": "get",
+      "path": "/queues/{queueId}/agents",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listQueues",
+      "wireOperationId": "listQueues",
+      "method": "get",
+      "path": "/queues",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listUsers",
+      "wireOperationId": "listUsers",
+      "method": "get",
+      "path": "/users",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listWaitingCalls",
+      "wireOperationId": "listWaitingCalls",
+      "method": "get",
+      "path": "/calls/waiting",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listWebhookDeliveries",
+      "wireOperationId": "listWebhookDeliveries",
+      "method": "get",
+      "path": "/webhook-subscriptions/{subscriptionId}/deliveries",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "listWebhookSubscriptions",
+      "wireOperationId": "listWebhookSubscriptions",
+      "method": "get",
+      "path": "/webhook-subscriptions",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "login",
+      "wireOperationId": "login",
+      "method": "post",
+      "path": "/auth/login",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "logout",
+      "wireOperationId": "logout",
+      "method": "post",
+      "path": "/auth/logout",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "monitorCall",
+      "wireOperationId": "monitorCall",
+      "method": "post",
+      "path": "/calls/{callId}/monitor",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "muteCall",
+      "wireOperationId": "muteCall",
+      "method": "post",
+      "path": "/calls/{callId}/mute",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "patchUserData",
+      "wireOperationId": "patchUserData",
+      "method": "patch",
+      "path": "/calls/{callId}/user-data",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "pauseCampaign",
+      "wireOperationId": "pauseCampaign",
+      "method": "post",
+      "path": "/campaigns/{campaignId}/pause",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "publishFlow",
+      "wireOperationId": "publishFlow",
+      "method": "post",
+      "path": "/flows/{flowId}/publish",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "releaseCallback",
+      "wireOperationId": "releaseCallback",
+      "method": "post",
+      "path": "/callbacks/{callbackId}/release",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "requestPostCallTranscription",
+      "wireOperationId": "requestPostCallTranscription",
+      "method": "post",
+      "path": "/calls/{callId}/transcription",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "resetUserPassword",
+      "wireOperationId": "resetUserPassword",
+      "method": "post",
+      "path": "/users/{userId}/password",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "resumeCampaign",
+      "wireOperationId": "resumeCampaign",
+      "method": "post",
+      "path": "/campaigns/{campaignId}/resume",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "retrieveCall",
+      "wireOperationId": "retrieveCall",
+      "method": "post",
+      "path": "/calls/{callId}/retrieve",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "revealExtensionPassword",
+      "wireOperationId": "revealExtensionPassword",
+      "method": "get",
+      "path": "/extensions/{extensionId}/password",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "revokeApiKey",
+      "wireOperationId": "revokeAPIKey",
+      "method": "post",
+      "path": "/api-keys/{keyId}/revoke",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "sendCallDtmf",
+      "wireOperationId": "sendCallDTMF",
+      "method": "post",
+      "path": "/calls/{callId}/dtmf",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "staffQueue",
+      "wireOperationId": "staffQueue",
+      "method": "put",
+      "path": "/queues/{queueId}/agents",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "startCampaign",
+      "wireOperationId": "startCampaign",
+      "method": "post",
+      "path": "/campaigns/{campaignId}/start",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "streamEvents",
+      "wireOperationId": "streamEvents",
+      "method": "get",
+      "path": "/events",
+      "mode": "stream",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "transferCall",
+      "wireOperationId": "transferCall",
+      "method": "post",
+      "path": "/calls/{callId}/transfer",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "unmuteCall",
+      "wireOperationId": "unmuteCall",
+      "method": "post",
+      "path": "/calls/{callId}/unmute",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "unstaffQueue",
+      "wireOperationId": "unstaffQueue",
+      "method": "delete",
+      "path": "/queues/{queueId}/agents/{agentId}",
+      "mode": "normal",
+      "requestMediaType": null
+    },
+    {
+      "publicOperationId": "updateAgent",
+      "wireOperationId": "updateAgent",
+      "method": "put",
+      "path": "/agents/{agentId}",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "updateApiKey",
+      "wireOperationId": "updateAPIKey",
+      "method": "patch",
+      "path": "/api-keys/{keyId}",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "updateCampaign",
+      "wireOperationId": "updateCampaign",
+      "method": "patch",
+      "path": "/campaigns/{campaignId}",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "updateContact",
+      "wireOperationId": "updateContact",
+      "method": "put",
+      "path": "/contacts/{contactId}",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "updateDid",
+      "wireOperationId": "updateDID",
+      "method": "put",
+      "path": "/dids/{didId}",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "updateExtension",
+      "wireOperationId": "updateExtension",
+      "method": "put",
+      "path": "/extensions/{extensionId}",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "updateFlowDraft",
+      "wireOperationId": "updateFlowDraft",
+      "method": "put",
+      "path": "/flows/{flowId}",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "updateQueue",
+      "wireOperationId": "updateQueue",
+      "method": "put",
+      "path": "/queues/{queueId}",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "updateUser",
+      "wireOperationId": "updateUser",
+      "method": "put",
+      "path": "/users/{userId}",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    },
+    {
+      "publicOperationId": "updateWebhookSubscription",
+      "wireOperationId": "updateWebhookSubscription",
+      "method": "put",
+      "path": "/webhook-subscriptions/{subscriptionId}",
+      "mode": "normal",
+      "requestMediaType": "application/json"
+    }
+  ],
+  "models": 184,
+  "modelCount": 184,
+  "sourceFiles": 88,
+  "testFiles": 38,
+  "sourceLines": 19274,
+  "averageSourceFileLines": 219.02,
+  "largestSourceFileLines": 1391,
+  "largestNonExemptSourceFileLines": 1391,
+  "sourceFileLineLimit": 1000,
+  "oversizedSourceFileExceptions": [],
+  "artifactBytes": 3161245,
+  "generatedUnitTests": 111,
+  "nativeExecutableTests": 111,
+  "sharedTestCaseDefinitions": 82,
+  "generatedTestCaseDefinitions": 82,
+  "renderedBehaviorCases": 84,
+  "behaviorKindsDeclared": [
+    "auth-application",
+    "binary-response",
+    "empty-response",
+    "error-response",
+    "header-serialization",
+    "json-request",
+    "json-response",
+    "path-serialization",
+    "query-serialization",
+    "streaming"
+  ],
+  "behaviorKindsExercised": [
+    "auth-application",
+    "binary-response",
+    "empty-response",
+    "error-response",
+    "header-serialization",
+    "json-request",
+    "json-response",
+    "path-serialization",
+    "query-serialization",
+    "streaming"
+  ],
+  "nativeBehaviorCoverageComplete": true,
+  "apiManifestPresent": true,
+  "apiManifestMatchesSchema": true,
+  "enumStrategy": "open",
+  "authoredContractTests": 0,
+  "authoredContractResponseModes": 0,
+  "synthesizedMockRoutes": 112,
+  "shadowedMockRoutes": 0,
+  "wireAliasMockRoutes": 0,
+  "publicSymbols": 999,
+  "documentedPublicSymbols": 999,
+  "authoredDocumentedPublicSymbols": 572,
+  "synthesizedDocumentedPublicSymbols": 427,
+  "documentationCoverage": 1,
+  "authoredDocumentationCoverage": 0.5725725725725725,
+  "nativeTestCountPassed": null,
+  "contractResponseModesPassed": null,
+  "formattingPassed": "pending",
+  "lintingPassed": "pending",
+  "compilationPassed": "pending",
+  "nativeTestsPassed": "pending",
+  "contractTestsPassed": "pending",
+  "packagePassed": "pending",
+  "consumerInstallPassed": "pending",
+  "pythonLintFix": null,
+  "pythonLint": null,
+  "warnings": [],
+  "blockingFailures": [],
+  "registryPackageBytes": null,
+  "deliveryReady": false,
+  "gateStates": {
+    "formatting": "pending",
+    "linting": "pending",
+    "compilation": "pending",
+    "nativeTests": "pending",
+    "contractTests": "pending",
+    "package": "pending",
+    "consumerInstall": "pending"
+  },
+  "releaseScorecard": {
+    "status": "pending",
+    "score": null,
+    "outOf": 10,
+    "releaseReady": false,
+    "blockers": [
+      "verification has not run"
+    ]
+  }
+}
